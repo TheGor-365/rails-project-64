@@ -13,4 +13,5 @@ test:
 
 production:
   <<: *default
+  database: collective_blog_m2cf
   url: <%= ENV['DATABASE_URL'] %>
