@@ -1,9 +1,19 @@
-<p class="display-3">
+<h1>
   Collective Blog
-</p>
+</h1>
 
 <% @posts.each do |post| %>
   <div class="border rounded p-3 my-3">
-    <%= post.name %>
+    <h4>
+      <%= link_to post.title, post_path(post), class: 'text-white'  %>
+    </h4>
+    <div class="mb-3">
+      <%= post.body %>
+    </div>
+    <div>
+      <small class="text-muted">
+        <%= post.creator.email %>
+      </small>
+    </div>
   </div>
 <% end %>

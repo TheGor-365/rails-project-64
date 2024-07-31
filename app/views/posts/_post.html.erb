@@ -1,2 +1,29 @@
 <div id="<%= dom_id post %>">
+  <span class="me-2"><%= link_to 'All Posts', root_path %></span> / <span class="ms-2"><%= @post.category.name.capitalize %></span>
+
+  <h3 class="mb-5 mt-3">
+    <%= @post.title %>
+  </h3>
+  <div class="mb-5">
+    <%= @post.body %>
+  </div>
+  <div class="mb-3">
+    <small class="text-muted">
+      <%= @post.creator.email %>
+    </small>
+  </div>
+</div>
+
+<div>
+  <h5 class="text-muted">
+    Comments
+  </h5>
+  <div class="card">
+    <div class="card-header">
+      <span class="me-3 text-muted"><%= @post.creator.email %></span><span class="text-muted">date</span>
+    </div>
+    <div class="card-body">
+
+    </div>
+  </div>
 </div>
