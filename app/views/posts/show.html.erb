@@ -1,6 +1,31 @@
-<div class="alert alert-success" role="alert">
-  <p><%= notice %></p>
-</div>
+<% if notice %>
+  <div class="alert alert-success" role="alert">
+    <p><%= notice %></p>
+  </div>
+<% end %>
 
 
 <%= render @post %>
+
+<% @post.post_comments.each do |comment| %>
+  <div class="card my-2">
+    <div class="card-header">
+      <span class="me-3 text-muted">
+        <%= @post.creator.email %>
+      </span>
+      <span class="me-3 text-muted">
+        <%= @post.created_at.strftime("%d %h, %H:%M") %>
+      </span>
+    </div>
+    <div class="card-body">
+      <p>
+        <%= comment.content %>
+      </p>
+    </div>
+    <div class="card-footer">
+      <span>
+        answer
+      </span>
+    </div>
+  </div>
+<% end %>

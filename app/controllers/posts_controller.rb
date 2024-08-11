@@ -4,10 +4,13 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[ show ]
   before_action :authenticate_user!
 
-  def show; end
+  def show
+    @comment = PostComment.new
+  end
 
   def new
     @post = Post.new
+    @comment = PostComment.new(post_id: params[:post_id])
   end
 
   def create

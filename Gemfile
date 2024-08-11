@@ -21,6 +21,7 @@ gem "image_processing", "~> 1.2"
 gem "stackprof"
 gem "sentry-ruby"
 gem "sentry-rails"
+gem 'ancestry'
 
 # gem "kredis"
 # gem "bcrypt", "~> 3.1.7"
