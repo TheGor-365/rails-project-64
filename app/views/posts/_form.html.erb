@@ -2,13 +2,8 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div>
-    <%= f.input :title, hint: '5-255 symbols' %>
-    <%= f.association :category %>
-    <%= f.input :body, as: :text, :input_html => {:rows => 6}, hint: 'from 200 to 4000 symbols' %>
-  </div>
-
-  <div>
-    <%= f.button :submit, class: 'btn btn-primary' %>
-  </div>
+  <%= f.input :title, hint: '5-255 symbols' %>
+  <%= f.association :category %>
+  <%= f.input :body, as: :text, :input_html => {:rows => 6}, hint: 'from 200 to 4000 symbols' %>
+  <%= f.button :submit, class: 'btn btn-primary' %>
 <% end %>

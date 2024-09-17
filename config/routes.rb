@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  root "pages#home"
+  root 'pages#home'
   devise_for :users
   resources :posts do
-    resources :comments, only: [:new, :create]
+    resources :comments, only: [:create]
   end
 end

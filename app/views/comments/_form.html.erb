@@ -1,0 +1,7 @@
+<%= simple_form_for :comment, url: post_comments_path(@post), method: :post do |f| %>
+  <% if !parent.nil? %>
+    <input type="hidden" name="comment[parent_id]" value="<%= parent.id %>">
+  <% end %>
+  <%= f.input :content, label: :COMMENTS, as: :text %>
+  <%= f.submit class: 'btn btn-primary mb-2' %>
+<% end %>

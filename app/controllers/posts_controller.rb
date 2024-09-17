@@ -1,16 +1,18 @@
 # frozen_string_literal: true
 
 class PostsController < ApplicationController
-  before_action :set_post, only: %i[ show ]
+  before_action :set_post, except: [:show]
   before_action :authenticate_user!
 
   def show
-    @comment = PostComment.new
+    @post = Post.find(params[:id])
+    @comment = PostComment.new(post_id: params[:post_id], parent_id: params[:parent_id])
   end
 
   def new
     @post = Post.new
-    @comment = PostComment.new(post_id: params[:post_id])
+    @user = current_user
+    @comment = PostComment.new(post_id: params[:post_id], parent_id: params[:parent_id])
   end
 
   def create

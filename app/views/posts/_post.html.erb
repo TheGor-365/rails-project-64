@@ -1,5 +1,3 @@
-<% @comments = PostComment.all %>
-
 <div id="<%= dom_id post %>">
   <span class="me-2"><%= link_to 'All Posts', root_path %></span> / <span class="ms-2"><%= @post.category.name.capitalize %></span>
 

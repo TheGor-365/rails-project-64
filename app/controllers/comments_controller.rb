@@ -2,20 +2,12 @@
 
 class CommentsController < ApplicationController
   before_action :set_post
-  before_action :set_comment, only: [:show]
-
-  def new
-    @comment = PostComment.new
-    @comments = PostComment.all
-  end
 
   def create
-    @comment = PostComment.new(comment_params)
-    @comment.user = current_user
+    @comment = current_user.comments.new(comment_params)
 
-    if @comment.save
-      redirect_to post_path(@post)
-    end
+    flash[:notice] = @comment.errors.full_messages.to_sentence unless @comment.save
+    redirect_to post_path(params[:post_id])
   end
 
   private
@@ -24,16 +16,12 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
   end
 
-  def set_comment
-    @post = PostComment.find(params[:id])
-  end
-
   def comment_params
-     params.require(:post_comment).permit(
-       :content,
-       :ancestry,
-       :post_id,
-       :user_id
-     )
+    params.require(:comment).permit(
+      :content,
+      :ancestry,
+      :user_id,
+      :parent_id
+    ).merge(post_id: params[:post_id])
   end
 end

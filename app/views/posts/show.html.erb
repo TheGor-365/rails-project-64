@@ -4,28 +4,16 @@
   </div>
 <% end %>
 
-
 <%= render @post %>
+<%= render partial: 'comments/form', locals: { post: @post, parent: nil } %>
+<%= render 'comments/comment', comment: @comment, post: @post, user: current_user %>
+<%#= render @post.comments.where(parent_id: nil).includes(:user).order(id: :desc) %>
 
-<% @post.post_comments.each do |comment| %>
-  <div class="card my-2">
-    <div class="card-header">
-      <span class="me-3 text-muted">
-        <%= @post.creator.email %>
-      </span>
-      <span class="me-3 text-muted">
-        <%= @post.created_at.strftime("%d %h, %H:%M") %>
-      </span>
-    </div>
-    <div class="card-body">
-      <p>
-        <%= comment.content %>
-      </p>
-    </div>
-    <div class="card-footer">
-      <span>
-        answer
-      </span>
-    </div>
-  </div>
-<% end %>
+<script type="text/javascript">
+  document.querySelectorAll('.comment-form-display').forEach((el) => {
+    el.addEventListener('click', (ev) => {
+      ev.preventDefault();
+      el.nextElementSibling.style = 'display: block;'
+    })
+  })
+</script>
