@@ -13,11 +13,32 @@
     </div>
     <div class="card-body">
       <p><%= comment.content %></p>
-      <div class="ps-5">
-        <% comment.children.order(id: :desc).each do |child| %>
-          <%= child.content %>
-        <% end %>
-      </div>
+      <% comment.children.order(id: :desc).each do |child| %>
+        <div class="card my-2">
+          <div class="card-header">
+            <span class="me-2">
+              <a href="#child-<%= child.id %>">#</a>
+            </span>
+            <span class="me-3 text-muted">
+              <%= current_user.email %>
+            </span>
+            <span class="me-3 text-muted">
+              <%= child.created_at.try(:strftime, ("%d %h, %H:%M")) %>
+            </span>
+          </div>
+          <div class="card-body">
+            <%= child.content %>
+          </div>
+          <div class="card-footer">
+            <span>
+              <a href="#" class="comment-form-display">Ответить</a>
+              <div class="comment-form">
+                <%= render partial: 'comments/form', locals: { post: comment.post, parent: comment } %>
+              </div>
+            </span>
+          </div>
+        </div>
+      <% end %>
     </div>
     <div class="card-footer">
       <span>
