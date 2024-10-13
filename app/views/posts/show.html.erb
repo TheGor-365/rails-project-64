@@ -5,15 +5,8 @@
 <% end %>
 
 <%= render @post %>
-<%= render partial: 'comments/form', locals: { post: @post, parent: nil } %>
-<%= render 'comments/comment', comment: @comment, post: @post, user: current_user %>
-<%#= render @post.comments.where(parent_id: nil).includes(:user).order(id: :desc) %>
+<%= render partial: 'post_comments/form', locals: { post: @post, parent: nil } %>
 
-<script type="text/javascript">
-  document.querySelectorAll('.comment-form-display').forEach((el) => {
-    el.addEventListener('click', (ev) => {
-      ev.preventDefault();
-      el.nextElementSibling.style = 'display: block;'
-    })
-  })
-</script>
+<% @post.comments.order(id: :desc).each do |comment| %>
+  <%= (render comment) if (comment.root?) %>
+<% end %>
