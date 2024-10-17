@@ -25,7 +25,7 @@
       aria-expanded="false"
       aria-controls="comment_<%= post_comment.id %>"
     >
-      Reply
+      <%= t('comment.reply') %>
     </a>
     <div class="collapse mx-2" id="comment_<%= post_comment.id %>">
       <%= render partial: 'post_comments/reply_form', locals: { post: post_comment.post, parent: post_comment } %>
