@@ -1,0 +1,5 @@
+en:
+  actions:
+    create_post: 'To publish'
+    create_comment: 'Leave a comment'
+    all_posts: 'All Posts'

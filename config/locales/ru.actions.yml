@@ -1,0 +1,5 @@
+ru:
+  actions:
+    create_post: 'Опубликовать'
+    create_comment: 'Оставить комментарий'
+    all_posts: 'Все посты'

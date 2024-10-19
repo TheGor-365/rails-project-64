@@ -2,6 +2,6 @@
   <% if !parent.nil? %>
     <%= f.input :parent_id, input_html: { value: parent.id }, as: :hidden %>
   <% end %>
-  <%= f.input :content, label: :COMMENTS, as: :text, input_html: { autocomplete: 'off' } %>
-  <%= f.submit class: 'btn btn-primary mb-2' %>
+  <%= f.input :content, label: t('comments.label'), as: :text, input_html: { autocomplete: 'off' } %>
+  <%= f.submit t('actions.create_comment'), class: 'btn btn-primary mb-2' %>
 <% end %>

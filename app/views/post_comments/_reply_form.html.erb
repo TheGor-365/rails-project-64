@@ -3,5 +3,5 @@
     <%= f.input :parent_id, input_html: { value: parent.id }, as: :hidden %>
   <% end %>
   <%= f.input :content, as: :text, label: false, input_html: { autocomplete: 'off' } %>
-  <%= f.submit class: 'btn btn-primary mb-2' %>
+  <%= f.submit t('actions.create_comment'), class: 'btn btn-primary mb-2' %>
 <% end %>

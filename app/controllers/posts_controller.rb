@@ -4,7 +4,9 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[ show ]
   before_action :authenticate_user!
 
-  def show; end
+  def show
+    @post_creation_time = 'time_ago_in_words @post.created_at.strftime("%d %B, %h")'
+  end
 
   def new
     @post = Post.new
@@ -15,9 +17,9 @@ class PostsController < ApplicationController
     @post.creator = current_user
 
     if @post.save
-      redirect_to(post_url(@post), notice: 'Post was successfully created.')
+      redirect_to(post_url(@post), notice: t('posts.create.success'))
     else
-      render(:new, status: :unprocessable_entity)
+      render(:new, notice: t('posts.create.failure'))
     end
   end
 

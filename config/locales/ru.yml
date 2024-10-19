@@ -1,2 +1,36 @@
 ru:
-  
+  app:
+    name: 'Коллективный блок'
+  home:
+    title: 'Коллективный блок'
+  actions:
+    create_post: Опубликовать
+    show_post: Показать пост
+    create_comment: Оставить комментарий
+    show_comment: Показать комментарий
+  comments:
+    reply: 'ответить'
+    label: 'КОММЕНТАРИИ'
+    create:
+      success: Комментарий был создан.
+      failure: Возникла ошибка с созданием комментария.
+  posts:
+    title: 'Новый пост'
+    category: 'Категория'
+    content: 'Содержание'
+    content_hint: 'От 200 до 4000 символов'
+    title_hint: '5-255 символов'
+    creation_time: '%{post_creation_time}'
+    create:
+      success: Пост успешно опубликован.
+      failure: Возникла ошибка с публикацией.
+    new:
+      title: 'Новый пост'
+    devise:
+      sign_in: 'Войть'
+      sign_up: 'Регистрация'
+      sign_out: 'Выйти'
+      edit_profile: 'Настройки'
+  datetime:
+    distance_in_words:
+      x_days: '%{count} дней'
