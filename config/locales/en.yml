@@ -34,41 +34,41 @@ en:
   datetime:
     distance_in_words:
       about_x_hours:
-        one: environ une heure
-        other: environ %{count} heures
+        one: about an hour
+        other: about an %{count} hours
       about_x_months:
-        one: environ un mois
-        other: environ %{count} mois
+        one: about an month
+        other: about an %{count} months
       about_x_years:
-        one: environ un an
-        other: environ %{count} ans
+        one: bout an year
+        other: оabout an %{count} years
       almost_x_years:
-        one: presqu'un an
-        other: presque %{count} ans
-      half_a_minute: une demi-minute
+        one: almost a year
+        other: almost %{count} years
+      half_a_minute: half a minute
       less_than_x_minutes:
-        zero: moins d'une minute
-        one: moins d'une minute
-        other: moins de %{count} minutes
+        zero: less than a minute
+        one: less than a minute
+        other: less than a %{count} minutes
       less_than_x_seconds:
-        zero: moins d'une seconde
-        one: moins d'une seconde
-        other: moins de %{count} secondes
+        zero: less than a second
+        one: less than a second
+        other: ess than a %{count} seconds
       over_x_years:
-        one: plus d'un an
-        other: plus de %{count} ans
+        one: more than a year
+        other: more than a %{count} years
       x_days:
-        one: 1 jour
-        other: "%{count} jours"
+        one: 1 day
+        other: "about %{count} days"
       x_minutes:
         one: 1 minute
-        other: "%{count} minutes"
+        other: "about %{count} minutes"
       x_months:
-        one: 1 mois
-        other: "%{count} mois"
+        one: 1 month
+        other: "about %{count} months"
       x_years:
-        one: un an
-        other: "%{count} ans"
+        one: one year
+        other: "about %{count} years"
       x_seconds:
-        one: 1 seconde
-        other: "%{count} secondes"
+        one: 1 second
+        other: "about %{count} seconds"

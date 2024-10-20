@@ -27,10 +27,48 @@ ru:
     new:
       title: 'Новый пост'
     devise:
-      sign_in: 'Войть'
+      sign_in: 'Войти'
       sign_up: 'Регистрация'
       sign_out: 'Выйти'
       edit_profile: 'Настройки'
   datetime:
     distance_in_words:
-      x_days: '%{count} дней'
+      about_x_hours:
+        one: около часа
+        other: около %{count} часов
+      about_x_months:
+        one: около месяца
+        other: около %{count} месяцев
+      about_x_years:
+        one: около года
+        other: около %{count} лет
+      almost_x_years:
+        one: почти год
+        other: почти %{count} лет
+      half_a_minute: пол минуты
+      less_than_x_minutes:
+        zero: меньше минуты
+        one: меньше минуты
+        other: меньше %{count} минут
+      less_than_x_seconds:
+        zero: меньше секунды
+        one: меньше секунды
+        other: меньше %{count} секунд
+      over_x_years:
+        one: более года
+        other: более %{count} лет
+      x_days:
+        one: 1 день
+        other: "около %{count} дней"
+      x_minutes:
+        one: 1 минута
+        other: "около %{count} минут"
+      x_months:
+        one: 1 месяц
+        other: "около %{count} месяцев"
+      x_years:
+        one: один год
+        other: "около %{count} лет"
+      x_seconds:
+        one: 1 секунда
+        other: "около %{count} секунд"
