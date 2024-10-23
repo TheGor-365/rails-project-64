@@ -1,6 +1,6 @@
 <% if notice %>
   <div class="alert alert-success" role="alert">
-    <p><%= notice %></p>
+    <p><%= t('posts.create.success') %></p>
   </div>
 <% end %>
 
@@ -8,5 +8,5 @@
 <%= render partial: 'post_comments/form', locals: { post: @post, parent: nil } %>
 
 <% @post.comments.order(id: :desc).each do |comment| %>
-  <%= (render comment) if (comment.root?) %>
+  <%= render comment if comment.root? %>
 <% end %>
