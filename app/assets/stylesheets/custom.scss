@@ -5,3 +5,20 @@ a {
 .comment-form {
   display: none;
 }
+
+.likes {
+  flex-wrap: nowrap !important;
+}
+
+.row {
+  flex-wrap: nowrap !important;
+}
+
+.star {
+  border: none !important;
+}
+
+.star:focus {
+  border: none;
+  outline: none;
+}
