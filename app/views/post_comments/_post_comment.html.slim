@@ -1,0 +1,27 @@
+.card.my-2
+  .card-header
+    span.me-2
+      |  <a href="#comment_
+      = post_comment.id
+      | ">#
+    span.me-3.text-muted
+      = @post.creator.email
+    span.me-3.text-muted
+      = post_comment.created_at.try(:strftime, ("%d %h, %H:%M"))
+  .card-body
+    = post_comment.content
+    .m-3
+      = render post_comment.children.order(id: :asc) if post_comment.children.length > 0
+  .card-footer
+    |  <a data-bs-target="#comment_
+    = post_comment.id
+    | " data-bs-toggle="collapse" href="#comment_
+    = post_comment.id
+    | " role="button" aria-expanded="false" aria-controls="comment_
+    = post_comment.id
+    | " > 
+    = t('comments.reply')
+    |  <div class="collapse mx-2" id="comment_
+    = post_comment.id
+    | "> 
+    = render partial: 'post_comments/reply_form', locals: { post: post_comment.post, parent: post_comment }

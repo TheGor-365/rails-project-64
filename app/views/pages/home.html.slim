@@ -1,0 +1,12 @@
+h1
+  = t('home.title')
+- @posts.each do |post|
+  .border.rounded.p-3.my-3
+
+  h4
+    = link_to post.title, post_path(post), class: 'text-white'
+  .mb-3
+    = post.body
+  div
+    small.text-muted
+      = post.creator.email
