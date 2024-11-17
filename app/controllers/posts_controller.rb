@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class PostsController < ApplicationController
-  before_action :set_post, only: %i[ show ]
+  before_action :set_post, only: %i[show]
   before_action :authenticate_user!
 
   def show
@@ -17,9 +17,9 @@ class PostsController < ApplicationController
     @post.creator = current_user
 
     if @post.save
-      redirect_to(post_url(@post), notice: t('posts.create.success'))
+      redirect_to(post_url(@post), notice: t('.success'))
     else
-      render(:new, notice: t('posts.create.failure'))
+      render(:new, notice: t('.failure'))
     end
   end
 

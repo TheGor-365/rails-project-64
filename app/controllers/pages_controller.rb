@@ -2,6 +2,6 @@
 
 class PagesController < ApplicationController
   def home
-    @posts = Post.all
+    @posts = Post.order(id: :desc) # rubocop:disable Rails/OrderById
   end
 end

@@ -7,13 +7,13 @@ en:
       default_message: "Пожалуйста, ознакомьтесь с приведенными ниже проблемами:"
     labels:
       defaults:
-        password: 'Пароль'
+        password: 'Password'
       user:
         new:
-          email: 'E-mail для входа.'
+          email: 'Email'
         edit:
-          email: 'E-mail.'
-    # hints:
-    #   defaults:
-    #     username: 'User name to sign in.'
-    #     password: 'No special characters, please.'
+          email: 'Edit email'
+    hints:
+      defaults:
+        username: 'Имя пользователя для входа в систему.'
+        password: 'Пожалуйста, без специальных символов.'

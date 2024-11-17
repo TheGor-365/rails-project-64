@@ -4,10 +4,10 @@ one:
   title: Title_one
   body: Body_one
   category: one
-  creator: user_one
+  creator: one
 
 two:
   title: Title_two
   body: Body_two
   category: two
-  creator: user_two
+  creator: two

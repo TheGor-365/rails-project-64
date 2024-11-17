@@ -1,4 +1,4 @@
-user_one:
-  email: first@example.com
-user_two:
-  email: second@example.com
+one:
+  email: one@example.com
+two:
+  email: two@example.com

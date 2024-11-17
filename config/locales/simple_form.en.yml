@@ -10,9 +10,9 @@ en:
         password: 'Password'
       user:
         new:
-          email: 'E-mail to sign in.'
+          email: 'Email'
         edit:
-          email: 'E-mail.'
+          email: 'Edit email'
     hints:
       defaults:
         username: 'User name to sign in.'

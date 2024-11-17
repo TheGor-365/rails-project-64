@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'pages#home'
 
-  scope "(:locale)", locale: /en|ru/ do
+  scope '(:locale)', locale: /en|ru/, defaults: { locale: 'ru' } do
     devise_for :users
 
     resources :posts do
@@ -9,5 +9,5 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :likes, only: [:create, :destroy]
+  resources :likes, only: %i[create destroy]
 end

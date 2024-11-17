@@ -1,0 +1,11 @@
+{
+    "workbench.colorCustomizations": {
+
+        "[Atom One Dark]": {
+            "editor.background": "#000",
+            "sideBar.background": "#000",
+            "panel.background": "#000",
+            "list.dropBackground": "#000"
+        }
+    }
+}
