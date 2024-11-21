@@ -8,9 +8,3 @@ Category.create([
   { name: '.NET'      }
 ]
                )
-
-User.create([
-  { email: 'one@example.com' },
-  { password: 'password' }
-]
-           )
