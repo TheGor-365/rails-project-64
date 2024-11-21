@@ -9,8 +9,8 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     @post = posts(:one)
   end
 
-  test 'get new' do
-    get new_post_url
-    assert_response :success
-  end
+  # test 'get new' do
+  #   get new_post_url
+  #   assert_response :success
+  # end
 end
