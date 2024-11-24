@@ -1,5 +1,5 @@
-= simple_form_for :comment, url: post_comments_path(@post), method: :post do |f|
+= simple_form_for :comment, url: post_comments_path(post), method: :post do |f|
   - if !parent.nil?
-    = f.input :parent_id, input_html: { value: parent.id }, as: :hidden
-  = f.input :content, label: t('comments.label'), as: :text, input_html: { autocomplete: 'off' }
-  = f.submit t('actions.create_comment'), class: 'btn btn-primary mb-2'
+    = f.input(:parent_id, input_html: { value: parent.id }, as: :hidden)
+  = f.input(:content, label: t('comments.label'), as: :text, input_html: { autocomplete: 'off' })
+  = f.submit(t('actions.create_comment'), class: 'btn btn-primary mb-2')

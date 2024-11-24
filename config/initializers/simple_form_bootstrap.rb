@@ -73,7 +73,9 @@ SimpleForm.setup do |config| # rubocop:disable Metrics/BlockLength
   end
 
   # vertical input for radio buttons and check boxes
-  config.wrappers(:vertical_collection, item_wrapper_class: 'form-check', item_label_class: 'form-check-label', tag: 'fieldset', class: 'mb-3') do |b|
+  config.wrappers(:vertical_collection, item_wrapper_class: 'form-check', item_label_class: 'form-check-label',
+                                        tag: 'fieldset', class: 'mb-3'
+  ) do |b|
     b.use(:html5)
     b.optional(:readonly)
     b.wrapper(:legend_tag, tag: 'legend', class: 'col-form-label pt-0') do |ba|
@@ -179,7 +181,9 @@ SimpleForm.setup do |config| # rubocop:disable Metrics/BlockLength
   end
 
   # horizontal input for radio buttons and check boxes
-  config.wrappers(:horizontal_collection, item_wrapper_class: 'form-check', item_label_class: 'form-check-label', class: 'row mb-3') do |b|
+  config.wrappers(:horizontal_collection, item_wrapper_class: 'form-check', item_label_class: 'form-check-label',
+                                          class: 'row mb-3'
+  ) do |b|
     b.use(:html5)
     b.optional(:readonly)
     b.use(:label, class: 'col-sm-3 col-form-label pt-0')

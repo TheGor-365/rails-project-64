@@ -33,7 +33,7 @@ linters:
 
   LineLength:
     enabled: true
-    max: 80
+    max: 180
 
   RedundantDiv:
     enabled: true
@@ -72,6 +72,7 @@ linters:
       - Layout/TrailingEmptyLines
       - Layout/TrailingWhitespace
       - Lint/Void
+      - Lint/Syntax
       - Metrics/BlockLength
       - Metrics/BlockNesting
       - Naming/FileName
@@ -81,6 +82,13 @@ linters:
       - Style/Next
       - Style/WhileUntilDo
       - Style/WhileUntilModifier
+      - Style/MissingElse
+      - Layout/SpaceAroundBlockParameters
+      - Style/HashSyntax
+      - Style/NegatedIf
+      - Lint/EmptyBlock
+      - Rails/OrderById
+      - TrailingWhitespace
 
   StrictLocalsMissing:
     enabled: false

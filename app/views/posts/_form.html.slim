@@ -1,7 +1,7 @@
-= simple_form_for(@post) do |f|
+= simple_form_for(post) do |f|
   = f.error_notification
-  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
-  = f.input :title, label: t('posts.title'), hint: t('posts.title_hint')
-  = f.association :category, label: t('posts.category')
-  = f.input :body, label: t('posts.content'), as: :text, :input_html => {:rows => 6}, hint: t('posts.content_hint')
-  = f.button :submit, t('actions.create_post'), class: 'btn btn-primary'
+  = f.error_notification(message: f.object.errors[:base].to_sentence) if f.object.errors[:base].present?
+  = f.input(:title, label: t('posts.title'), hint: t('posts.title_hint'))
+  = f.association(:category, label: t('posts.category'))
+  = f.input(:body, label: t('posts.content'), as: :text, input_html: { rows: 6 }, hint: t('posts.content_hint'))
+  = f.button(:submit, t('actions.create_post'), class: 'btn btn-primary')
