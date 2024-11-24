@@ -12,7 +12,7 @@ class PostsTest < ApplicationSystemTestCase
   test 'visiting the home' do
     email = Faker::Internet.email
     password = Faker::Internet.password(min_length: 10, max_length: 30)
-    User.create!(email: email, password: password)
+    User.create!(email:, password:)
 
     visit new_user_session_url
 
