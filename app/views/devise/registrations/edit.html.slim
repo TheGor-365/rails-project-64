@@ -15,8 +15,6 @@
     .form-actions
       = f.button(:submit, 'Update', class: 'btn btn-success')
 .m-5.p-5.shadow.rounded.col-6
-  - # rubocop:disable Layout/LineLength
   = button_to 'Cancel account', registration_path(resource_name), data: { confirm: 'Are you sure?', turbo_confirm: 'Are you sure?' }, method: :delete, class: 'text-danger btn btn-danger text-white'
-  - # rubocop:enable Layout/LineLength
   br
   = link_to 'Back', :back
