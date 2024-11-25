@@ -3,11 +3,7 @@
 AllCops:
   NewCops: enable
 
-###########################################################
 #################### RuboCop Performance ##################
-###########################################################
-
-# You can find all configuration options for rubocop-performance here: https://docs.rubocop.org/rubocop-performance/
 
 Performance/AncestorsInclude: # (new in 1.7)
   Enabled: true
