@@ -3,11 +3,7 @@
 AllCops:
   NewCops: enable
 
-###########################################################
 #################### RuboCop Rails ########################
-###########################################################
-
-# You can find all configuration options for rubocop-rails here: https://docs.rubocop.org/rubocop-rails/cops_rails.html
 
 Rails/ActiveRecordCallbacksOrder:
   Enabled: true
