@@ -12,7 +12,6 @@ gem 'devise', '~> 4.9'
 gem 'image_processing', '~> 1.2'
 gem 'jbuilder'
 gem 'jsbundling-rails'
-gem 'minitest-power_assert'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 7.0.8', '>= 7.0.8.1'
 gem 'redis', '~> 4.0'
@@ -25,11 +24,8 @@ gem 'stimulus-rails'
 gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
-# gem "kredis"
-# gem "bcrypt", "~> 3.1.7"
-# gem "sassc-rails"
-
 group :development, :test do
+  gem 'minitest-power_assert'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'faker'
   gem 'rubocop', require: false
@@ -41,9 +37,6 @@ end
 
 group :development do
   gem 'web-console'
-
-  # gem "rack-mini-profiler"
-  # gem "spring"
 end
 
 group :test do
