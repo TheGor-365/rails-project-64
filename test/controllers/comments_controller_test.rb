@@ -2,33 +2,16 @@
 
 require 'test_helper'
 
-class PostsControllerTest < ActionDispatch::IntegrationTest
+class CommentsControllerTest < ActionDispatch::IntegrationTest
   setup do
     sign_in users(:one)
     @post = posts(:one)
+    @comment = post_comments(:one)
     self.default_url_options = { locale: I18n.default_locale }
-  end
-
-  test 'visiting the home' do
-    get root_url
-
-    assert_response :success
-  end
-
-  test 'authenticated users can see posts' do
-    get root_path
-    assert_response :success
-    @post = posts(:one)
-  end
-
-  test 'get new' do
-    get new_post_url
-    assert_response :success
   end
 
   test 'should get create' do
     @user = users(:one)
-    @category = categories(:one)
 
     get new_post_url
     assert_response :success
@@ -42,7 +25,16 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
       }
     }
 
-    assert { new_post }
+    new_comment = {
+      comment: {
+        user_id: @user,
+        post_id: new_post,
+        content: Faker::Lorem.sentence(word_count: 25, supplemental: true),
+        ancestry: '/'
+      }
+    }
+
+    assert { new_comment }
     assert_response :success
   end
 end

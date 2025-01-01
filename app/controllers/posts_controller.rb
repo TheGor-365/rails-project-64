@@ -34,7 +34,7 @@ class PostsController < ApplicationController
       :title,
       :body,
       :creator,
-      :category_id
+      :category
     )
   end
 end
