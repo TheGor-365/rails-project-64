@@ -25,9 +25,9 @@ gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 group :development, :test do
-  gem 'minitest-power_assert'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'faker'
+  gem 'minitest-power_assert'
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false

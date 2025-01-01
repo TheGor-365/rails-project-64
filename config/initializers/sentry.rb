@@ -2,6 +2,6 @@
 
 Sentry.init do |config|
   config.breadcrumbs_logger = [:active_support_logger]
-  config.dsn = ENV['SENTRY_DSN']
+  config.dsn = ENV.fetch('SENTRY_DSN', nil)
   config.enable_tracing = true
 end
