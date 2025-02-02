@@ -2,4 +2,4 @@
 # exit on error
 set -o errexit
 
-bundle exec puma -C config/puma.rb
+rails server -b 0.0.0.0 -p $PORT
