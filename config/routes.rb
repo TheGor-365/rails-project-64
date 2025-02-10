@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  root 'pages#home'
-
   scope '(:locale)', locale: /en|ru/, defaults: { locale: 'ru' } do
+    root 'pages#home'
     devise_for :users
 
     resources :posts do
