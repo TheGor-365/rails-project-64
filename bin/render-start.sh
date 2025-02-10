@@ -2,4 +2,4 @@
 # exit on error
 set -o errexit
 
-rails server -b 0.0.0.0 -p $PORT
+exec foreman start -f Procfile.dev "$@"

@@ -2,7 +2,7 @@
 
 class PostsController < ApplicationController
   before_action :set_post, only: %i[show]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: %i[index]
 
   def index
     @posts = Post.order(id: :desc) # rubocop:disable Rails/OrderById
