@@ -2,4 +2,4 @@
 # exit on error
 set -o errexit
 
-exec foreman start -f Procfile.dev "$@"
+bundle exec puma -C config/puma.rb
