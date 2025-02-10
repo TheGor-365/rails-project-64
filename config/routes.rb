@@ -2,7 +2,7 @@
 
 Rails.application.routes.draw do
   scope '(:locale)', locale: /en|ru/, defaults: { locale: 'ru' } do
-    root 'pages#home'
+    root 'posts#index'
     devise_for :users
 
     resources :posts do

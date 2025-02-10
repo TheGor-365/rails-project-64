@@ -4,6 +4,10 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[show]
   before_action :authenticate_user!
 
+  def index
+    @posts = Post.order(id: :desc) # rubocop:disable Rails/OrderById
+  end
+
   def show
     @post_creation_time = 'time_ago_in_words @post.created_at.strftime("%d %B, %h")'
   end
