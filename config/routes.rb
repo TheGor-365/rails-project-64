@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  root 'posts#index'
   scope '(:locale)', locale: /en|ru/, defaults: { locale: 'ru' } do
-    root 'posts#index'
+    
     devise_for :users
 
     resources :posts do
