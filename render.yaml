@@ -1,12 +1,12 @@
 databases:
-  - name: cproject_64_yl4b
+  - name: collective_blog
     databaseName: project_64_yl4b
     user: project_64_yl4b_user
     plan: free
 
 services:
   - type: web
-    name: rails-project-64
+    name: collective_blog
     runtime: ruby
     plan: free
     buildCommand: "./bin/render-build.sh"
