@@ -12,8 +12,8 @@ gem 'devise', '~> 4.9'
 gem 'image_processing', '~> 1.2'
 gem 'jbuilder'
 gem 'jsbundling-rails'
-gem 'puma', '~> 5.0'
-gem 'rails', '~> 7.0.8', '>= 7.0.8.1'
+gem 'puma', '~> 6.4'
+gem 'rails', '~> 7.2.0'
 gem 'redis', '~> 4.0'
 gem 'sentry-rails'
 gem 'sentry-ruby'
@@ -50,4 +50,4 @@ group :production do
   gem 'pg'
 end
 
-gem 'stringio', '~> 3.1.7'
+gem 'stringio', '~> 3.1', platforms: :ruby

@@ -4,9 +4,9 @@ class LikesController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    @like = current_user.likes.find_or_initialize_by(post_id: like_params[:post_id])
-    @like.save # игнорим ошибку повторного лайка — её покрывает unique index + validation
-    redirect_to @like.post
+    like = current_user.likes.find_or_initialize_by(post_id: like_params[:post_id])
+    like.save
+    redirect_to like.post
   end
 
   def destroy
@@ -19,6 +19,6 @@ class LikesController < ApplicationController
   private
 
   def like_params
-    params.require(:like).permit(:post_id) # :user_id НЕ разрешаем
+    params.require(:like).permit(:post_id)
   end
 end

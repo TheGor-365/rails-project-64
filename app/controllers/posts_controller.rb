@@ -4,8 +4,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: %i[new create]
   before_action :set_post, only: %i[show]
 
-  def show
-  end
+  def show; end
 
   def new
     @post = Post.new
@@ -13,7 +12,6 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
-
     if @post.save
       redirect_to(post_url(@post), notice: t('.success'))
     else
