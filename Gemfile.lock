@@ -345,7 +345,6 @@ DEPENDENCIES
   image_processing (~> 1.2)
   jbuilder
   jsbundling-rails
-  logger (~> 1.6)
   minitest-power_assert
   pg
   puma (~> 6.4)
