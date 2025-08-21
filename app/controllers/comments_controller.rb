@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
     @comment = current_user.comments.new(comment_params.merge(post_id: @post.id))
     flash[:notice] = @comment.errors.full_messages.to_sentence unless @comment.save
 
-    redirect_to post_path(@post)
+    redirect_to(post_path(@post))
   end
 
   private

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'test_helper'
 class PostsControllerTest < ActionDispatch::IntegrationTest
   setup do
@@ -15,8 +16,8 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   test 'POST /posts creates post' do
     attrs = {
       post: {
-        title:       Faker::Lorem.sentence(word_count: 3),
-        body:        Faker::Lorem.paragraph_by_chars(number: 220),
+        title: Faker::Lorem.sentence(word_count: 3),
+        body: Faker::Lorem.paragraph_by_chars(number: 220),
         category_id: @category.id
       }
     }

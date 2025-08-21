@@ -16,7 +16,7 @@ class PostsController < ApplicationController
       redirect_to(post_url(@post), notice: t('.success'))
     else
       flash.now[:alert] = @post.errors.full_messages.to_sentence
-      render :new, status: :unprocessable_entity
+      render(:new, status: :unprocessable_entity)
     end
   end
 
