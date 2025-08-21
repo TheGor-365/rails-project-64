@@ -1,10 +1,5 @@
 # frozen_string_literal: true
 
-Category.create([
-  { name: 'Ruby' },
-  { name: 'JavaScript' },
-  { name: 'Go'        },
-  { name: 'Python'    },
-  { name: '.NET'      }
-]
-               )
+%w[general ruby rails javascript].each do |name|
+  Category.find_or_create_by!(name: name)
+end

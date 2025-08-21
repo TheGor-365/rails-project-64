@@ -15,6 +15,7 @@ gem 'jsbundling-rails'
 gem 'logger', '~> 1.6'
 gem 'puma', '~> 6.4'
 gem 'rails', '~> 7.2.0'
+gem 'rails-i18n', '~> 7.0'
 gem 'redis', '~> 4.0'
 gem 'sentry-rails'
 gem 'sentry-ruby'
@@ -48,5 +49,3 @@ end
 group :production do
   gem 'pg'
 end
-
-gem 'stringio', '~> 3.1', platforms: :ruby

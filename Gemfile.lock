@@ -213,6 +213,9 @@ GEM
     rails-html-sanitizer (1.6.2)
       loofah (~> 2.21)
       nokogiri (>= 1.15.7, != 1.16.7, != 1.16.6, != 1.16.5, != 1.16.4, != 1.16.3, != 1.16.2, != 1.16.1, != 1.16.0.rc1, != 1.16.0)
+    rails-i18n (7.0.10)
+      i18n (>= 0.7, < 2)
+      railties (>= 6.0.0, < 8)
     railties (7.2.2.2)
       actionpack (= 7.2.2.2)
       activesupport (= 7.2.2.2)
@@ -303,9 +306,9 @@ GEM
     thor (1.4.0)
     tilt (2.6.1)
     timeout (0.4.3)
-    turbo-rails (2.0.12)
-      actionpack (>= 6.0.0)
-      railties (>= 6.0.0)
+    turbo-rails (2.0.16)
+      actionpack (>= 7.1.0)
+      railties (>= 7.1.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (3.1.5)
@@ -347,6 +350,7 @@ DEPENDENCIES
   pg
   puma (~> 6.4)
   rails (~> 7.2.0)
+  rails-i18n (~> 7.0)
   redis (~> 4.0)
   rubocop
   rubocop-performance
@@ -360,7 +364,6 @@ DEPENDENCIES
   sqlite3 (~> 1.4)
   stackprof
   stimulus-rails
-  stringio (~> 3.1)
   turbo-rails
   tzinfo-data
   web-console

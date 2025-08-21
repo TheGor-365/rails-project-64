@@ -8,6 +8,7 @@ ru:
     show_post: Показать пост
     create_comment: Оставить комментарий
     show_comment: Показать комментарий
+    all_posts: "Все посты"
   comments:
     reply: 'ответить'
     label: 'КОММЕНТАРИИ'
