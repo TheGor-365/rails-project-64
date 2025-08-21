@@ -3,7 +3,7 @@ span.me-2 = link_to t('actions.all_posts'), root_path
 span.ms-2 = post.category.name.capitalize
 
 h3.mb-5.mt-3 = post.title
-.mb-5        = simple_format(post.body)
+.mb-5 = simple_format(post.body)
 
 / === Метаданные + лайк в одну линию ===
 .post-meta.d-flex.justify-content-between.align-items-center.mt-2.mb-3
@@ -24,7 +24,7 @@ h3.mb-5.mt-3 = post.title
           span.me-1 aria-hidden='true' ♥
           span = post.likes.count
       - else
-        = form_with url: likes_path, scope: :like, method: :post, class: 'd-inline' do |f|
+        = form_with(url: likes_path, scope: :like, method: :post, class: 'd-inline') do |f|
           = f.hidden_field :post_id, value: post.id
           button.btn.btn-link.p-0.text-decoration-none.d-inline-flex.align-items-center type='submit'
             span.me-1 aria-hidden='true' ♥
