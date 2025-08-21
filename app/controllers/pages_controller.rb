@@ -2,6 +2,6 @@
 
 class PagesController < ApplicationController
   def home
-  @posts = Post.includes(:creator, :category, :likes).order(created_at: :desc)
+    @posts = Post.includes(:creator, :category, :likes).order(created_at: :desc)
   end
 end
