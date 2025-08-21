@@ -3,4 +3,4 @@ set -e
 
 bundle install
 yarn install --frozen-lockfile || true
-bundle exec rake assets:precompile
+bundle exec rails assets:precompile
