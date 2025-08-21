@@ -142,7 +142,7 @@ GEM
     json (2.13.2)
     language_server-protocol (3.17.0.5)
     lint_roller (1.1.0)
-    logger (1.7.0)
+    logger (1.5.3)
     loofah (2.24.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -386,7 +386,7 @@ DEPENDENCIES
   image_processing (~> 1.2)
   jbuilder
   jsbundling-rails
-  logger (~> 1.5, >= 1.5.3)
+  logger (= 1.5.3)
   minitest-power_assert
   pg
   puma (~> 6.4)
