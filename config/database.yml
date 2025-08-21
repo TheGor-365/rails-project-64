@@ -12,11 +12,6 @@ test:
   database: db/test.sqlite3
 
 production:
-  adapter: postgresql
+  url: <%= ENV['DATABASE_URL'] %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
-  username: collective_blog_m2cf_user
-  host: localhost
-  port: 5432
-  database: collective_blog_m2cf
-  url: <%= ENV['DATABASE_URL'] %>

@@ -326,6 +326,7 @@ DEPENDENCIES
   image_processing (~> 1.2)
   jbuilder
   jsbundling-rails
+  logger (~> 1.6)
   minitest-power_assert
   pg
   puma (~> 5.0)
@@ -343,6 +344,7 @@ DEPENDENCIES
   sqlite3 (~> 1.4)
   stackprof
   stimulus-rails
+  stringio (~> 3.1.7)
   turbo-rails
   tzinfo-data
   web-console

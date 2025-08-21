@@ -1,5 +1,16 @@
 # frozen_string_literal: true
 
+environment ENV.fetch("RAILS_ENV") { "development" }
+
+if ENV["WEB_CONCURRENCY"]
+  workers ENV["WEB_CONCURRENCY"].to_i
+elsif ENV.fetch("RAILS_ENV", "development") == "development"
+  workers 0
+else
+  workers ENV.fetch("WEB_CONCURRENCY", 4)
+end
+
+
 # Puma can serve each request in a thread from an internal thread pool.
 # The `threads` method setting takes two numbers: a minimum and maximum.
 # Any libraries that use thread pools should be configured to match
