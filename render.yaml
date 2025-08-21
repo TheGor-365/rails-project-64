@@ -7,9 +7,9 @@ services:
     name: rails-project-64
     runtime: ruby
     plan: free
-    buildCommand: "./bin/render-build.sh"
-    startCommand: "bundle exec puma -C config/puma.rb"
-    postdeploy: "bundle exec rails db:migrate db:seed"
+    buildCommand: ./bin/render-build.sh
+    startCommand: bundle exec puma -C config/puma.rb
+    postDeployCommand: bundle exec rails db:migrate db:seed
     envVars:
       - key: DATABASE_URL
         fromDatabase:
@@ -18,7 +18,7 @@ services:
       - key: RAILS_MASTER_KEY
         sync: false
       - key: RAILS_LOG_TO_STDOUT
-        value: "enabled"
+        value: "true"
       - key: RAILS_SERVE_STATIC_FILES
         value: "true"
       - key: WEB_CONCURRENCY
