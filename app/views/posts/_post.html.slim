@@ -25,7 +25,7 @@ h3.mb-5.mt-3 = post.title
           span = post.likes.count
       - else
         = form_with(url: likes_path, scope: :like, method: :post, class: 'd-inline') do |f|
-          = f.hidden_field :post_id, value: post.id
+          = f.hidden_field(:post_id, value: post.id)
           button.btn.btn-link.p-0.text-decoration-none.d-inline-flex.align-items-center type='submit'
             span.me-1 aria-hidden='true' ♥
             span = post.likes.count
