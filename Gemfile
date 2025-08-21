@@ -11,6 +11,7 @@ gem 'cssbundling-rails'
 gem 'devise', '~> 4.9'
 gem 'image_processing', '~> 1.2'
 gem 'jbuilder'
+gem 'logger', '~> 1.6'
 gem 'jsbundling-rails'
 gem 'puma', '~> 6.4'
 gem 'rails', '~> 7.2.0'
@@ -23,7 +24,6 @@ gem 'stackprof'
 gem 'stimulus-rails'
 gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-gem 'logger',   '~> 1.6'
 
 
 group :development, :test do

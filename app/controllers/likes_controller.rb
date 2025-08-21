@@ -5,15 +5,15 @@ class LikesController < ApplicationController
 
   def create
     like = current_user.likes.find_or_initialize_by(post_id: like_params[:post_id])
-    like.save
-    redirect_to like.post
+    like.save!
+    redirect_to(like.post)
   end
 
   def destroy
     like = current_user.likes.find(params[:id])
     post = like.post
-    like.destroy
-    redirect_to post
+    like.destroy!
+    redirect_to(post)
   end
 
   private

@@ -7,13 +7,14 @@ inherit_from:
   - '.rubocop-performance.yml'
   - '.rubocop-rails.yml'
 
-require:
+plugins:
   - rubocop-performance
   - rubocop-rails
 
 AllCops:
   TargetRubyVersion: 3.2
   TargetRailsVersion: 7.2
+  SuggestExtensions: false
   Exclude:
     - '**/db/migrate/*'
     - 'db/schema.rb'

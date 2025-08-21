@@ -6,6 +6,8 @@ class LikesControllerTest < ActionDispatch::IntegrationTest
     sign_in users(:one)
     @post = posts(:one)
     self.default_url_options = { locale: I18n.default_locale }
+    # гарантируем чистое состояние: нет лайка user(:one) -> post(:one)
+    PostLike.where(user: users(:one), post: @post).delete_all
   end
 
   test 'POST /likes likes a post' do

@@ -15,7 +15,8 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to(post_url(@post), notice: t('.success'))
     else
-      render(:new, notice: t('.failure'))
+      flash.now[:alert] = @post.errors.full_messages.to_sentence
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -26,11 +27,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(
-      :title,
-      :body,
-      :creator_id,
-      :category_id,
-    )
+    params.require(:post).permit(:title, :body, :category_id)
   end
 end
