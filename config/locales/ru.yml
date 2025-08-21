@@ -10,7 +10,7 @@ ru:
     show_comment: Показать комментарий
     all_posts: "Все посты"
   comments:
-    reply: 'ответить'
+    reply: 'Ответить'
     label: 'КОММЕНТАРИИ'
     create:
       success: Комментарий был создан.
