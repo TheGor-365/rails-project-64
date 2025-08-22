@@ -28,7 +28,7 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    raw = params[:post_comment] || params[:comment] || {}
-    ActionController::Parameters.new(raw).permit(:content, :parent_id)
+    key = params[:post_comment].present? ? :post_comment : :comment
+    params.require(key).permit(:content, :parent_id, :creator_id)
   end
 end
