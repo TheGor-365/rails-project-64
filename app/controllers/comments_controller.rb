@@ -18,9 +18,6 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(
-      :content,
-      :parent_id
-    )
+    params.fetch(:post_comment, params.fetch(:comment, {})).permit(:content, :parent_id)
   end
 end
