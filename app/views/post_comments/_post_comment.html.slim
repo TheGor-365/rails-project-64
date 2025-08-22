@@ -2,7 +2,7 @@
   .card-header
     span.me-2
       = link_to '#', "#comment_#{post_comment.id}"
-    span.me-3.text-muted = post_comment.post.creator.email
+    span.me-3.text-muted = post_comment.creator.email
     span.me-3.text-muted = post_comment.created_at&.strftime('%d %h, %H:%M')
 
   .card-body

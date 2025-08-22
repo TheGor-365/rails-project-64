@@ -1,7 +1,6 @@
 - if notice
   .alert.alert-success[role="alert"]
-    p
-      = t('posts.create.success')
+    p = notice
 = render @post
 = render partial: 'post_comments/form', locals: { post: @post, parent: nil }
 - @post.comments.order(id: :desc).each do |comment|

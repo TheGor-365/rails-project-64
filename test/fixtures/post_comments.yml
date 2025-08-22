@@ -2,8 +2,10 @@ one:
   content: MyText
   user: one
   post: one
+  creator: one
 
 two:
   content: MyText
   user: two
   post: two
+  creator: two

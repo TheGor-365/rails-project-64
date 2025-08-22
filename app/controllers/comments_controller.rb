@@ -7,16 +7,17 @@ class CommentsController < ApplicationController
   def create
     @comment = @post.comments.build(comment_params)
     @comment.creator = current_user
+    @comment.user    = current_user
 
     if @comment.save
       respond_to do |f|
-        f.turbo_stream { head(:ok) }
-        f.html         { redirect_to(post_path(@post)) }
+        f.turbo_stream { redirect_to post_path(@post) }
+        f.html         { redirect_to post_path(@post) }
       end
     else
       respond_to do |f|
-        f.turbo_stream { head(:unprocessable_entity) }
-        f.html         { redirect_to(post_path(@post), alert: @comment.errors.full_messages.to_sentence) }
+        f.turbo_stream { head :unprocessable_entity }
+        f.html         { redirect_to post_path(@post), alert: @comment.errors.full_messages.to_sentence }
       end
     end
   end
@@ -29,6 +30,6 @@ class CommentsController < ApplicationController
 
   def comment_params
     key = params[:post_comment].present? ? :post_comment : :comment
-    params.require(key).permit(:content, :parent_id, :creator_id)
+    params.require(key).permit(:content, :parent_id)
   end
 end
