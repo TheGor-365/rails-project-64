@@ -5,10 +5,19 @@ class CommentsController < ApplicationController
   before_action :set_post
 
   def create
-    @comment = current_user.comments.new(comment_params.merge(post_id: @post.id))
-    flash[:notice] = @comment.errors.full_messages.to_sentence unless @comment.save
+    @comment = @post.comments.build(comment_params.merge(user: current_user))
 
-    redirect_to(post_path(@post))
+    if @comment.save
+      respond_to do |f|
+        f.turbo_stream { head(:ok) }
+        f.html         { redirect_to(@post) }
+      end
+    else
+      respond_to do |f|
+        f.turbo_stream { head(:unprocessable_entity) }
+        f.html         { redirect_to(@post, alert: @comment.errors.full_messages.to_sentence) }
+      end
+    end
   end
 
   private
@@ -18,6 +27,6 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    params.fetch(:post_comment, params.fetch(:comment, {})).permit(:content, :parent_id)
+    params.fetch(:post_comment, {}).permit(:content, :parent_id)
   end
 end
