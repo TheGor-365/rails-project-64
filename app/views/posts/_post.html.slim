@@ -15,21 +15,4 @@ h3.mb-5.mt-3 = post.title
 
   / ПРАВО: лайк
   = turbo_frame_tag("post_#{post.id}_like") do
-    - if user_signed_in?
-      - like = current_user.likes.find_by(post: post)
-      - if like
-        = button_to(like_path(like),
-                    method: :delete,
-                    class: 'btn btn-link p-0 text-decoration-none d-inline-flex align-items-center') do
-          span.me-1 aria-hidden='true' ♥
-          span = post.likes.count
-      - else
-        = form_with(url: likes_path, scope: :like, method: :post, class: 'd-inline') do |f|
-          = f.hidden_field(:post_id, value: post.id)
-          button.btn.btn-link.p-0.text-decoration-none.d-inline-flex.align-items-center type='submit'
-            span.me-1 aria-hidden='true' ♥
-            span = post.likes.count
-    - else
-      span.text-muted.d-inline-flex.align-items-center
-        span.me-1 aria-hidden='true' ♥
-        span = post.likes.count
+    = render 'posts/like', post: post

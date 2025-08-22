@@ -11,18 +11,17 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = current_user.posts.new(post_params)
+    @post = Post.new(post_params.merge(creator: current_user))
 
-    respond_to do |f|
-      if @post.save
-        f.turbo_stream { head(:ok) }
+    if @post.save
+      respond_to do |f|
+        # f.turbo_stream { head(:ok) }
         f.html         { redirect_to(post_url(@post)) }
-      else
-        f.turbo_stream { head(:unprocessable_entity) }
-        f.html do
-          flash.now[:alert] = @post.errors.full_messages.to_sentence
-          render(:new, status: :unprocessable_entity)
-        end
+      end
+    else
+      respond_to do |f|
+        # f.turbo_stream { head(:unprocessable_entity) }
+        f.html         { render(:new, status: :unprocessable_entity) }
       end
     end
   end

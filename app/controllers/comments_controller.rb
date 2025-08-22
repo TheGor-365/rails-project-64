@@ -5,17 +5,18 @@ class CommentsController < ApplicationController
   before_action :set_post
 
   def create
-    @comment = @post.comments.build(comment_params.merge(user: current_user))
+    @comment = @post.comments.build(comment_params)
+    @comment.creator = current_user
 
     if @comment.save
       respond_to do |f|
         f.turbo_stream { head(:ok) }
-        f.html         { redirect_to(@post) }
+        f.html         { redirect_to(post_path(@post)) }
       end
     else
       respond_to do |f|
         f.turbo_stream { head(:unprocessable_entity) }
-        f.html         { redirect_to(@post, alert: @comment.errors.full_messages.to_sentence) }
+        f.html         { redirect_to(post_path(@post), alert: @comment.errors.full_messages.to_sentence) }
       end
     end
   end
@@ -27,6 +28,7 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    params.fetch(:post_comment, {}).permit(:content, :parent_id)
+    raw = params[:post_comment] || params[:comment] || {}
+    ActionController::Parameters.new(raw).permit(:content, :parent_id)
   end
 end

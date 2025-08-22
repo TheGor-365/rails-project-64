@@ -1,0 +1,13 @@
+- like = user_signed_in? ? current_user.likes.find_by(post: post) : nil
+
+- if user_signed_in?
+  - if like
+    = button_to like_path(like), method: :delete, class: 'btn btn-link p-0' do
+      i.bi.bi-hand-thumbs-up-fill
+      = " #{post.likes.count}"
+  - else
+    = button_to likes_path(post_id: post.id), method: :post, class: 'btn btn-link p-0' do
+      i.bi.bi-hand-thumbs-up
+      = " #{post.likes.count}"
+- else
+  span = post.likes.count
