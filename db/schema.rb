@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_08_22_120047) do
+ActiveRecord::Schema[7.2].define(version: 2025_08_22_164628) do
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -24,7 +24,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_08_22_120047) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "ancestry"
-    t.integer "creator_id", null: false
+    t.integer "creator_id"
     t.index ["ancestry"], name: "index_post_comments_on_ancestry"
     t.index ["creator_id"], name: "index_post_comments_on_creator_id"
     t.index ["post_id"], name: "index_post_comments_on_post_id"

@@ -73,3 +73,6 @@ ru:
       x_seconds:
         one: 1 секунда
         other: "около %{count} секунд"
+  time:
+    formats:
+      comment_short: "%d %b, %H:%M"
