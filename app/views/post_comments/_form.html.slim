@@ -1,5 +1,7 @@
-= simple_form_for :post_comment, url: post_comments_path(post), method: :post do |f|
+- return unless user_signed_in?
+
+= simple_form_for(:post_comment, url: post_comments_path(post), method: :post) do |f|
   - if parent.present?
-    = f.input :parent_id, as: :hidden, input_html: { value: parent.id }
-  = f.input :content, label: t('comments.label'), as: :text, input_html: { autocomplete: 'off' }
-  = f.submit t('actions.create_comment'), class: 'btn btn-primary mb-2'
+    = f.input(:parent_id, as: :hidden, input_html: { value: parent.id })
+  = f.input(:content, label: t('comments.label'), as: :text, input_html: { autocomplete: 'off' })
+  = f.submit(t('actions.create_comment'), class: 'btn btn-primary mb-2')

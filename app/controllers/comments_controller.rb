@@ -11,13 +11,13 @@ class CommentsController < ApplicationController
 
     if @comment.save
       respond_to do |f|
-        f.turbo_stream { redirect_to post_path(@post) }
-        f.html         { redirect_to post_path(@post) }
+        f.turbo_stream { redirect_to(post_path(@post)) }
+        f.html         { redirect_to(post_path(@post)) }
       end
     else
       respond_to do |f|
-        f.turbo_stream { head :unprocessable_entity }
-        f.html         { redirect_to post_path(@post), alert: @comment.errors.full_messages.to_sentence }
+        f.turbo_stream { head(:unprocessable_entity) }
+        f.html         { redirect_to(post_path(@post), alert: @comment.errors.full_messages.to_sentence) }
       end
     end
   end
