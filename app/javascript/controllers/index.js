@@ -1,3 +1,8 @@
-import { application } from "./application";
+import { Application } from "@hotwired/stimulus";
+
 import ResetFormController from "./reset_form_controller";
-application.register("reset-form", ResetFormController);
+import FlashController from "./flash_controller";
+
+window.Stimulus = Application.start();
+Stimulus.register("reset-form", ResetFormController);
+Stimulus.register("flash", FlashController);
