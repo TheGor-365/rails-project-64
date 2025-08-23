@@ -11,6 +11,8 @@ class LikesController < ApplicationController
       f.turbo_stream { redirect_to(post_path(post)) }
       f.html         { redirect_to(post_path(post)) }
     end
+  rescue ActiveRecord::RecordNotFound
+    not_found_like
   end
 
   def destroy

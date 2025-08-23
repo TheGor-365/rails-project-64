@@ -1,0 +1,4 @@
+ru:
+  time:
+    formats:
+      comment_short: "%d %b, %H:%M"

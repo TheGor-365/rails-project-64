@@ -6,8 +6,8 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @post.comments.build(comment_params)
-    @comment.creator = current_user
     @comment.user    = current_user
+    @comment.creator = current_user
 
     if @comment.save
       respond_to do |f|

@@ -9,12 +9,12 @@ class PostComment < ApplicationRecord
   belongs_to :post
   belongs_to :creator, class_name: 'User', optional: true
 
+  validates :content, presence: true, length: { minimum: 3 }
+
   before_validation :ensure_creator
 
   after_create_commit :broadcast_create
   after_destroy_commit :broadcast_destroy
-
-  validates :content, presence: true, length: { minimum: 3 }
 
   private
 
