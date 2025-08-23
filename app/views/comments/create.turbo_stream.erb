@@ -6,4 +6,8 @@
   <%= turbo_stream.replace dom_id(@comment.parent, :reply_form) do %>
     <%= render partial: "post_comments/reply_form", locals: { post: @post, parent: @comment.parent } %>
   <% end %>
+
+  <%= turbo_stream.replace dom_id(@comment.parent, :reply_collapse) do %>
+    <%= render partial: "post_comments/reply_collapse", locals: { post: @post, parent: @comment.parent } %>
+  <% end %>
 <% end %>

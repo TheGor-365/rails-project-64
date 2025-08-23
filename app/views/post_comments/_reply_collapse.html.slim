@@ -1,0 +1,4 @@
+- reply_collapse_id = dom_id(parent, :reply_collapse)
+
+.collapse.mx-2 id=reply_collapse_id
+  = render partial: 'post_comments/reply_form', locals: { post: post, parent: parent }
