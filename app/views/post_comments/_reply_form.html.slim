@@ -1,5 +1,9 @@
 div id=dom_id(parent, :reply_form)
-  = simple_form_for(:post_comment, url: post_comments_path(post), method: :post) do |f|
-    = f.hidden_field(:parent_id, value: parent.id)
-    = f.text_area(:content, rows: 3, class: 'form-control mb-2', autocomplete: 'off', placeholder: t('post_comments.reply_placeholder', default: 'Reply...'))
-    = f.submit(t('comments.reply'), class: 'btn btn-outline-primary btn-sm')
+  = simple_form_for(:post_comment,
+                    url: post_comments_path(locale: I18n.locale, post_id: post),
+                    method: :post,
+                    data: { controller: 'reset-form', action: 'turbo:submit-end->reset-form#reset' }) do |f|
+    = f.hidden_field :parent_id, value: parent.id
+    = f.text_area :content, rows: 3, class: 'form-control mb-2', autocomplete: 'off',
+                  placeholder: t('post_comments.reply_placeholder', default: 'Reply...')
+    = f.submit t('comments.reply'), class: 'btn btn-outline-primary btn-sm'

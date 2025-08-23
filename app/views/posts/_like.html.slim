@@ -1,13 +1,15 @@
-- like = user_signed_in? ? current_user.likes.find_by(post: post) : nil
+- current_like = current_user && current_user.likes.find_by(post: post)
+- likes_count = post.likes.count
 
-- if user_signed_in?
-  - if like
-    = button_to like_path(like), method: :delete, class: 'btn btn-link p-0' do
-      i.bi.bi-hand-thumbs-up-fill
-      = " #{post.likes.count}"
-  - else
-    = button_to likes_path, params: { like: { post_id: post.id } }, method: :post, class: 'btn btn-link p-0' do
-      i.bi.bi-hand-thumbs-up
-      = " #{post.likes.count}"
+/ Кнопка лайка без подчёркивания, счётчик отдельно
+- if current_like
+  = form_with url: like_path(current_like, locale: I18n.locale), method: :delete, class: 'd-inline', local: true do
+    button.btn.btn-link.p-0.text-decoration-none type="submit" title=t('actions.unlike', default: 'Unlike')
+      i.bi.bi-heart-fill
+  span.ms-1.align-middle = likes_count
 - else
-  span = post.likes.count
+  = form_with url: likes_path(locale: I18n.locale), method: :post, class: 'd-inline', local: true do
+    = hidden_field_tag 'like[post_id]', post.id
+    button.btn.btn-link.p-0.text-decoration-none type="submit" title=t('actions.like', default: 'Like')
+      i.bi.bi-heart
+  span.ms-1.align-middle = likes_count

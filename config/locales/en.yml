@@ -72,6 +72,3 @@ en:
       x_seconds:
         one: 1 second
         other: "about %{count} seconds"
-  time:
-    formats:
-      comment_short: "%d %b, %H:%M"

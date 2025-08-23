@@ -2,11 +2,15 @@
   .alert.alert-success[role="alert"]
     p = notice
 
-= render(@post)
+= render @post
 
-= turbo_stream_from([@post, :comments])
+/ --- Комментарии ---
+h3.h5.text-uppercase.mt-4.mb-2 = t('comments.label')
 
-= render(partial: 'post_comments/form', locals: { post: @post, parent: nil })
+= render partial: 'post_comments/form', locals: { post: @post, parent: nil }
+
+/ Подписка на стрим и контейнер списка
+= turbo_stream_from [@post, :comments]
 
 div id=dom_id(@post, :comments)
   - @post.comments.order(id: :desc).each do |comment|

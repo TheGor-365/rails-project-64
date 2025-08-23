@@ -1,7 +1,7 @@
 .card.my-2 id="comment_#{post_comment.id}"
   .card-header
     span.me-2
-      = link_to('#', "#comment_#{post_comment.id}")
+      = link_to '#', "#comment_#{post_comment.id}"
     - author_email = post_comment.creator&.email.presence || post_comment.user&.email.presence || 'unknown'
     span.me-3.text-muted = author_email
     span.me-3.text-muted = l(post_comment.created_at, format: :comment_short)
@@ -11,7 +11,7 @@
     .m-3
       div id=dom_id(post_comment, :children)
         - if post_comment.children.any?
-          = render(post_comment.children.order(id: :asc))
+          = render post_comment.children.order(id: :asc)
 
   .card-footer
     - reply_id = dom_id(post_comment, :reply_form)
@@ -21,7 +21,6 @@
       data-bs-target="##{reply_id}"
       aria-expanded="false"
       aria-controls=reply_id
-    )
-      = t('comments.reply')
+    ) = t('comments.reply')
     .collapse.mx-2 id=reply_id
-      = render(partial: 'post_comments/reply_form', locals: { post: post_comment.post, parent: post_comment })
+      = render partial: 'post_comments/reply_form', locals: { post: post_comment.post, parent: post_comment }
