@@ -5,9 +5,7 @@ require 'active_support/core_ext/integer/time'
 Rails.application.configure do
   config.generators.after_generate do |files|
     parsable_files = files.filter { |file| file.end_with?('.rb') }
-    unless parsable_files.empty?
-      system("rubocop -A --fail-level=E #{parsable_files.shelljoin}", exception: true)
-    end
+    system("rubocop -A --fail-level=E #{parsable_files.shelljoin}", exception: true) unless parsable_files.empty?
   end
 
   config.cache_classes = false
