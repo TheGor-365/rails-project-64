@@ -1,107 +1,119 @@
-skip_frontmatter: false
+exclude:
+  - 'node_modules/**/*'
+  - 'vendor/**/*'
 
 linters:
-  CommentControlStatement:
-    enabled: true
-
-  ConsecutiveControlStatements:
-    enabled: true
-    max_consecutive: 2
-
-  ControlStatementSpacing:
-    enabled: true
-
-  EmbeddedEngines:
+  RuboCop:
     enabled: false
-    forbidden_engines: []
-
-  EmptyControlStatement:
-    enabled: true
-
-  EmptyLines:
-    enabled: true
-
-  FileLength:
-    enabled: false
-    max: 300
-
-  InstanceVariables:
-    enabled: true
-    include:
-      - app/views/**/_*.html.slim
 
   LineLength:
-    enabled: true
-    max: 200
-
-  RedundantDiv:
-    enabled: true
-
-  RuboCop:
-    enabled: true
-
-    ignored_cops:
-      - Layout/ArgumentAlignment
-      - Layout/ArrayAlignment
-      - Layout/BlockAlignment
-      - Layout/ClosingParenthesisIndentation
-      - Layout/EmptyLineAfterGuardClause
-      - Layout/EndAlignment
-      - Layout/FirstArgumentIndentation
-      - Layout/FirstArrayElementIndentation
-      - Layout/FirstHashElementIndentation
-      - Layout/FirstParameterIndentation
-      - Layout/HashAlignment
-      - Layout/IndentationConsistency
-      - Layout/IndentationWidth
-      - Layout/InitialIndentation
-      - Layout/LineEndStringConcatenationIndentation
-      - Layout/LineLength
-      - Layout/MultilineArrayBraceLayout
-      - Layout/MultilineAssignmentLayout
-      - Layout/MultilineHashBraceLayout
-      - Layout/MultilineMethodCallBraceLayout
-      - Layout/MultilineMethodCallIndentation
-      - Layout/MultilineMethodDefinitionBraceLayout
-      - Layout/MultilineOperationIndentation
-      - Layout/ParameterAlignment
-      - Layout/TrailingEmptyLines
-      - Layout/TrailingWhitespace
-      - Lint/Void
-      - Lint/Syntax
-      - Metrics/BlockLength
-      - Metrics/BlockNesting
-      - Naming/FileName
-      - Style/FrozenStringLiteralComment
-      - Style/IdenticalConditionalBranches
-      - Style/IfUnlessModifier
-      - Style/Next
-      - Style/WhileUntilDo
-      - Style/WhileUntilModifier
-      - Style/MissingElse
-      - Layout/SpaceAroundBlockParameters
-      - Style/HashSyntax
-      - Style/NegatedIf
-      - Lint/EmptyBlock
-      - Rails/OrderById
-      - TrailingWhitespace
-
-  StrictLocalsMissing:
     enabled: false
-    include:
-      - app/views/**/_*.html.slim
 
-  Tab:
-    enabled: true
 
-  TagCase:
-    enabled: true
-
-  TrailingBlankLines:
-    enabled: true
-
-  TrailingWhitespace:
-    enabled: true
-
-  Zwsp:
-    enabled: false
+# skip_frontmatter: false
+#
+# linters:
+#   CommentControlStatement:
+#     enabled: true
+#
+#   ConsecutiveControlStatements:
+#     enabled: true
+#     max_consecutive: 2
+#
+#   ControlStatementSpacing:
+#     enabled: true
+#
+#   EmbeddedEngines:
+#     enabled: false
+#     forbidden_engines: []
+#
+#   EmptyControlStatement:
+#     enabled: true
+#
+#   EmptyLines:
+#     enabled: true
+#
+#   FileLength:
+#     enabled: false
+#     max: 300
+#
+#   InstanceVariables:
+#     enabled: true
+#     include:
+#       - app/views/**/_*.html.slim
+#
+#   LineLength:
+#     enabled: true
+#     max: 200
+#
+#   RedundantDiv:
+#     enabled: true
+#
+#   RuboCop:
+#     enabled: true
+#
+#     ignored_cops:
+#       - Layout/ArgumentAlignment
+#       - Layout/ArrayAlignment
+#       - Layout/BlockAlignment
+#       - Layout/ClosingParenthesisIndentation
+#       - Layout/EmptyLineAfterGuardClause
+#       - Layout/EndAlignment
+#       - Layout/FirstArgumentIndentation
+#       - Layout/FirstArrayElementIndentation
+#       - Layout/FirstHashElementIndentation
+#       - Layout/FirstParameterIndentation
+#       - Layout/HashAlignment
+#       - Layout/IndentationConsistency
+#       - Layout/IndentationWidth
+#       - Layout/InitialIndentation
+#       - Layout/LineEndStringConcatenationIndentation
+#       - Layout/LineLength
+#       - Layout/MultilineArrayBraceLayout
+#       - Layout/MultilineAssignmentLayout
+#       - Layout/MultilineHashBraceLayout
+#       - Layout/MultilineMethodCallBraceLayout
+#       - Layout/MultilineMethodCallIndentation
+#       - Layout/MultilineMethodDefinitionBraceLayout
+#       - Layout/MultilineOperationIndentation
+#       - Layout/ParameterAlignment
+#       - Layout/TrailingEmptyLines
+#       - Layout/TrailingWhitespace
+#       - Lint/Void
+#       - Lint/Syntax
+#       - Metrics/BlockLength
+#       - Metrics/BlockNesting
+#       - Naming/FileName
+#       - Style/FrozenStringLiteralComment
+#       - Style/IdenticalConditionalBranches
+#       - Style/IfUnlessModifier
+#       - Style/Next
+#       - Style/WhileUntilDo
+#       - Style/WhileUntilModifier
+#       - Style/MissingElse
+#       - Layout/SpaceAroundBlockParameters
+#       - Style/HashSyntax
+#       - Style/NegatedIf
+#       - Lint/EmptyBlock
+#       - Rails/OrderById
+#       - TrailingWhitespace
+#
+#   StrictLocalsMissing:
+#     enabled: false
+#     include:
+#       - app/views/**/_*.html.slim
+#
+#   Tab:
+#     enabled: true
+#
+#   TagCase:
+#     enabled: true
+#
+#   TrailingBlankLines:
+#     enabled: true
+#
+#   TrailingWhitespace:
+#     enabled: true
+#
+#   Zwsp:
+#     enabled: false

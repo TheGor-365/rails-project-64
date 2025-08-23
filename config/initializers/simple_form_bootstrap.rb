@@ -6,7 +6,7 @@
 SimpleForm.setup do |config|
   config.button_class = 'btn'
   config.boolean_label_class = 'form-check-label'
-  config.label_text = ->(label, required, _explicit_label) { "#{label} #{required}" }
+  config.label_text = -> (label, required, _explicit_label) { "#{label} #{required}" }
   config.boolean_style = :inline
   config.item_wrapper_tag = :div
   config.include_default_input_wrapper_class = false
