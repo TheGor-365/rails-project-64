@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
 
     if @comment.save
       respond_to do |f|
-        f.turbo_stream { head(:ok) }
+        f.turbo_stream
         f.html         { redirect_to(post_path(@post)) }
       end
     else

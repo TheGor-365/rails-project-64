@@ -1,7 +1,6 @@
 .card.my-2 id="comment_#{post_comment.id}"
   .card-header
-    span.me-2
-      = link_to('#', "#comment_#{post_comment.id}")
+    span.me-2 = link_to('#', "#comment_#{post_comment.id}")
     - author_email = post_comment.creator&.email.presence || post_comment.user&.email.presence || 'unknown'
     span.me-3.text-muted = author_email
     span.me-3.text-muted = l(post_comment.created_at, format: :comment_short)
@@ -9,13 +8,19 @@
   .card-body
     = post_comment.content
     .m-3
+      / контейнер для детей
       div id=dom_id(post_comment, :children)
         - if post_comment.children.any?
           = render(post_comment.children.order(id: :asc))
 
   .card-footer
-    - reply_id = "comment_reply_#{post_comment.id}"
-    a(data-bs-target="##{reply_id}" data-bs-toggle="collapse" href="##{reply_id}" role="button" aria-expanded="false" aria-controls=reply_id)
-      = t('comments.reply')
+    - reply_id = dom_id(post_comment, :reply_form)
+    button.btn.btn-link.p-0.text-decoration-none(
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="##{reply_id}"
+      aria-expanded="false"
+      aria-controls=reply_id
+    )
     .collapse.mx-2 id=reply_id
       = render(partial: 'post_comments/reply_form', locals: { post: post_comment.post, parent: post_comment })

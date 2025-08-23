@@ -1,5 +1,8 @@
-= simple_form_for :comment, url: post_comments_path(post), method: :post do |f|
-  - if !parent.nil?
-    = f.input(:parent_id, input_html: { value: parent.id }, as: :hidden)
-  = f.input(:content, as: :text, label: false, input_html: { autocomplete: 'off' })
-  = f.submit(t('actions.create_comment'), class: 'btn btn-primary mb-2')
+div id=dom_id(parent, :reply_form)
+  = simple_form_for(:post_comment,
+                    url: post_comments_path(post),
+                    method: :post) do |f|
+    = f.hidden_field(:parent_id, value: parent.id)
+    = f.text_area(:content, rows: 3, class: 'form-control mb-2',
+                  placeholder: t('post_comments.reply_placeholder', default: 'Reply...'))
+    = f.submit(t('comments.reply', default: 'Reply'), class: 'btn btn-outline-primary btn-sm')

@@ -1,7 +1,13 @@
 - return unless user_signed_in?
 
-= simple_form_for(:post_comment, url: post_comments_path(post), method: :post) do |f|
-  - if parent.present?
-    = f.input(:parent_id, as: :hidden, input_html: { value: parent.id })
-  = f.input(:content, label: t('comments.label'), as: :text, input_html: { autocomplete: 'off' })
-  = f.submit(t('actions.create_comment'), class: 'btn btn-primary mb-2')
+div id=dom_id(post, :new_comment)
+  = simple_form_for(:post_comment,
+                    url: post_comments_path(post),
+                    method: :post,
+                    class: 'card my-3') do |f|
+    .card-body
+      = f.hidden_field(:parent_id, value: nil)
+      .mb-2
+        = f.text_area(:content, rows: 3, class: 'form-control',
+                      placeholder: t('post_comments.placeholder', default: 'Write a comment...'))
+        = f.submit(t('post_comments.create', default: 'Add comment'), class: 'btn btn-primary mt-2')

@@ -1,0 +1,9 @@
+<%= turbo_stream.replace dom_id(@post, :new_comment) do %>
+  <%= render partial: "post_comments/form", locals: { post: @post, parent: nil } %>
+<% end %>
+
+<% if @comment.parent_id.present? %>
+  <%= turbo_stream.replace dom_id(@comment.parent, :reply_form) do %>
+    <%= render partial: "post_comments/reply_form", locals: { post: @post, parent: @comment.parent } %>
+  <% end %>
+<% end %>
