@@ -1,12 +1,8 @@
 # frozen_string_literal: true
 
-# See https://github.com/heartcombo/simple_form#custom-components
-# Dir[Rails.root.join('lib/components/**/*.rb')].each { |f| require f }
-
 SimpleForm.setup do |config|
   config.wrappers(:default, class: :input,
-                            hint_class: :field_with_hint, error_class: :field_with_errors, valid_class: :field_without_errors
-  ) do |b|
+                            hint_class: :field_with_hint, error_class: :field_with_errors, valid_class: :field_without_errors) do |b|
     b.use(:html5)
     b.use(:placeholder)
     b.optional(:maxlength)

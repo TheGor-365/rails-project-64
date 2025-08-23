@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-# See https://github.com/heartcombo/simple_form#custom-components
-# Dir[Rails.root.join('lib/components/**/*.rb')].each { |f| require f }
-
 SimpleForm.setup do |config|
   config.button_class = 'btn'
   config.boolean_label_class = 'form-check-label'
