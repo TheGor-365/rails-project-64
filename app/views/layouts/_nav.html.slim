@@ -1,14 +1,13 @@
-.row.mt-2
-  .col-1
+.row.mt-3.align-items-center
+  .col-auto
     = link_to root_path do
       i.bi.bi-people-fill
-  .col-6
-  .col-5
+
+  .col-auto.ms-auto.text-end
     - if user_signed_in?
       = link_to edit_user_registration_path,
                 class: 'text-dark text-decoration-none me-4' do
-        small.text-white
-          = current_user.email
+        small.text-white = current_user.email
       = link_to t('posts.title'),
                 new_post_path,
                 class: 'text-primary text-decoration-none me-3'
@@ -23,6 +22,7 @@
       = link_to t('devise.shared.links.sign_up'),
                 new_user_registration_path,
                 class: 'text-primary text-decoration-none'
+
     span.ms-3
       .btn-group.btn-group-sm role="group" aria-label="Language switcher"
         - I18n.available_locales.each do |locale|
