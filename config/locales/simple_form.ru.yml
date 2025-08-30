@@ -1,19 +1,25 @@
-en:
+ru:
   simple_form:
     required:
-      text: 'обязательно'
-      mark: '*'
+      text: "обязательно"
+      mark: "*"
     error_notification:
-      default_message: "Пожалуйста, ознакомьтесь с приведенными ниже проблемами:"
+      default_message: "Пожалуйста, исправьте ошибки ниже:"
     labels:
       defaults:
-        password: 'Password'
+        email: "Email"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
+        remember_me: "Запомнить меня"
+        title: "Заголовок"
+        body: "Содержимое"
+        category: "Категория"
       user:
         new:
-          email: 'Email'
+          email: "Email"
         edit:
-          email: 'Edit email'
+          email: "Изменить email"
     hints:
       defaults:
-        username: 'Имя пользователя для входа в систему.'
-        password: 'Пожалуйста, без специальных символов.'
+        username: "Имя пользователя для входа."
+        password: "Пожалуйста, без специальных символов."

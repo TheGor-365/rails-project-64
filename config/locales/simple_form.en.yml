@@ -1,19 +1,25 @@
 en:
   simple_form:
     required:
-      text: 'required'
-      mark: '*'
+      text: "required"
+      mark: "*"
     error_notification:
       default_message: "Please review the problems below:"
     labels:
       defaults:
-        password: 'Password'
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Password confirmation"
+        remember_me: "Remember me"
+        title: "Title"
+        body: "Content"
+        category: "Category"
       user:
         new:
-          email: 'Email'
+          email: "Email"
         edit:
-          email: 'Edit email'
+          email: "Edit email"
     hints:
       defaults:
-        username: 'User name to sign in.'
-        password: 'No special characters, please.'
+        username: "User name to sign in."
+        password: "No special characters, please."
