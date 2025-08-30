@@ -1,6 +1,8 @@
-- reply_collapse_id = dom_id(parent, :reply_collapse)
-- extra_classes = (defined?(force_show) && force_show) ? 'show' : nil
+ruby:
+  reply_collapse_id = dom_id(parent, :reply_collapse)
+  local_pc          = defined?(post_comment) ? post_comment : PostComment.new
+  css_classes       = %w[collapse mx-2]
+  css_classes << 'show' if defined?(force_show) && force_show
 
-.collapse.mx-2 id=reply_collapse_id class=extra_classes
-  = render partial: 'post_comments/reply_form',
-           locals: { post: post, parent: parent, post_comment: local_assigns[:post_comment] }
+div id=reply_collapse_id class=css_classes.join(' ')
+  = render partial: 'post_comments/reply_form', locals: { post: post, parent: parent, post_comment: local_pc }
