@@ -32,6 +32,7 @@ ru:
       sign_up: 'Регистрация'
       sign_out: 'Выйти'
       edit_profile: 'Настройки'
+    liked: "Понравилось:"
   datetime:
     distance_in_words:
       about_x_hours:

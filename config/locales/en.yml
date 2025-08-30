@@ -31,6 +31,7 @@ en:
       sign_up: 'Sign Up'
       sign_out: 'Sign Out'
       edit_profile: 'Settings'
+    liked: "Liked:"
   datetime:
     distance_in_words:
       about_x_hours:

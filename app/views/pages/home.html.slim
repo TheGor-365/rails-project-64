@@ -1,12 +1,21 @@
-h1
-  = t('home.title')
-- @posts.each do |post|
-  .border.rounded.p-3.my-3
+.row.mt-3
+  .col-md-8.mx-auto
+    h1.mb-4 = t('home.title')
 
-    h4
-      = link_to post.title, post_path(post), class: 'text-white text-decoration-none'
-    .mb-3
-      = post.body
-    div
-      small.text-muted
-        = post.creator.email
+    - if @posts.any?
+      - @posts.order(created_at: :desc).each do |post|
+        .card.mb-3
+          .card-body
+            h2.h5.mb-2
+              = link_to post.title, post_path(post, locale: I18n.locale), class: 'text-decoration-none text-dark'
+
+            p.mb-3 = truncate(post.body, length: 220)
+
+            / --- Плоская мета-строка: "Понравилось: N <время> <email>"
+            small.text-muted
+              = t('posts.liked')
+              = " #{post.likes.count} "
+              = time_ago_in_words(post.created_at)
+              = " #{post.creator.email}"
+    - else
+      p.text-muted = t('posts.index.empty', default: 'No posts yet')
