@@ -15,13 +15,11 @@ class PostsController < ApplicationController
 
     if @post.save
       respond_to do |f|
-        # f.turbo_stream { head(:ok) }
-        f.html         { redirect_to(post_url(@post)) }
+        f.html { redirect_to(post_url(@post), notice: t('.success')) }
       end
     else
       respond_to do |f|
-        # f.turbo_stream { head(:unprocessable_entity) }
-        f.html         { render(:new, status: :unprocessable_entity) }
+        f.html { render(:new, status: :unprocessable_entity) }
       end
     end
   end
