@@ -10,7 +10,7 @@ h3.mb-5.mt-3 = post.title
   / ЛЕВО: автор + время
   small.text-muted.d-flex.align-items-center.gap-2
     = post.creator.email
-    span aria-hidden='true' 
+    span aria-hidden='true'
     = time_ago_in_words(post.created_at)
 
   / ПРАВО: лайк
