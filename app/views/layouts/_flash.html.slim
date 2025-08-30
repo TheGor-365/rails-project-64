@@ -1,8 +1,9 @@
-- mapping = {'notice' => 'alert-success', 'success' => 'alert-success', 'alert' => 'alert-danger', 'error' => 'alert-danger', 'warning' => 'alert-warning'}
+/ Flash messages (Bootstrap 5)
+- mapping = { 'notice' => 'alert-success', 'success' => 'alert-success', 'alert' => 'alert-danger', 'error' => 'alert-danger', 'warning' => 'alert-warning' }
 
 - flash.each do |key, messages|
   - klass = mapping.fetch(key.to_s, 'alert-info')
   - Array(messages).each do |msg|
     .alert.alert-dismissible.fade.show.mt-3 class=klass role="alert"
       = msg
-      button.btn-close type="button" data-bs-dismiss="alert" aria-label=t('actions.close', default: "Close")
+      button.btn-close type="button" data-bs-dismiss="alert" aria-label=t('actions.close', default: 'Close')
