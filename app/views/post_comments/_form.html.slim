@@ -1,18 +1,23 @@
 - return unless user_signed_in?
+ruby:
+  pc = local_assigns[:post_comment] || PostComment.new
 
 div id=dom_id(post, :new_comment)
-  = simple_form_for(:post_comment,
+  = simple_form_for(pc,
+                    as: :post_comment,
                     url: post_comments_path(locale: I18n.locale, post_id: post),
                     method: :post,
-                    data: { controller: 'reset-form', action: 'turbo:submit-end->reset-form#reset' },
-                    class: 'card my-3') do |f|
-    .card-body
-      = f.hidden_field(:parent_id, value: nil)
-      .mb-2
-        = f.text_area(:content,
-                      rows: 3,
-                      class: 'form-control',
-                      autocomplete: 'off',
-                      placeholder: t('post_comments.placeholder', default: 'Write a comment...'))
-      .text-start
-        = f.submit(t('actions.create_comment'), class: 'btn btn-primary')
+                    data: { controller: 'reset-form', action: 'turbo:submit-end->reset-form#reset' }) do |f|
+    = f.hidden_field :parent_id, value: nil
+    = f.error_notification
+    = f.text_area :content,
+                  rows: 3,
+                  class: 'form-control mb-2',
+                  autocomplete: 'off',
+                  placeholder: t('post_comments.placeholder', default: 'Write a comment...')
+    - errs = pc.errors.full_messages
+    - if errs.any?
+      ul.text-danger.small.mb-2
+        - errs.each do |msg|
+          li = msg
+    = f.submit t('actions.create_comment'), class: 'btn btn-primary'

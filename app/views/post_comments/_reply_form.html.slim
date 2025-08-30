@@ -1,14 +1,23 @@
-- reply_form_id = dom_id(parent, :reply_form)
+ruby:
+  reply_form_id = dom_id(parent, :reply_form)
+  pc = local_assigns[:post_comment] || PostComment.new(parent: parent, post: post)
 
 div id=reply_form_id
-  = simple_form_for(:post_comment,
+  = simple_form_for(pc,
+                    as: :post_comment,
                     url: post_comments_path(locale: I18n.locale, post_id: post),
                     method: :post,
                     data: { controller: 'reset-form', action: 'turbo:submit-end->reset-form#reset' }) do |f|
-    = f.hidden_field(:parent_id, value: parent.id)
-    = f.text_area(:content,
+    = f.hidden_field :parent_id, value: parent.id
+    = f.error_notification
+    = f.text_area :content,
                   rows: 3,
                   class: 'form-control mb-2',
                   autocomplete: 'off',
-                  placeholder: t('post_comments.reply_placeholder', default: 'Reply...'))
-    = f.submit(t('comments.reply'), class: 'btn btn-outline-primary btn-sm')
+                  placeholder: t('post_comments.reply_placeholder', default: 'Reply...')
+    - errs = pc.errors.full_messages
+    - if errs.any?
+      ul.text-danger.small.mb-2
+        - errs.each do |msg|
+          li = msg
+    = f.submit t('comments.reply'), class: 'btn btn-outline-primary btn-sm'

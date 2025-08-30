@@ -1,4 +1,8 @@
-- reply_collapse_id = dom_id(parent, :reply_collapse)
+ruby:
+  reply_collapse_id = dom_id(parent, :reply_collapse)
+  classes = ['collapse', 'mx-2']
+  classes << 'show' if local_assigns[:force_open]
 
-.collapse.mx-2 id=reply_collapse_id
-  = render partial: 'post_comments/reply_form', locals: { post: post, parent: parent }
+.collapse id=reply_collapse_id class=classes.join(' ')
+  = render partial: 'post_comments/reply_form',
+           locals: { post: post, parent: parent, post_comment: local_assigns[:post_comment] }
