@@ -7,7 +7,7 @@
     - if user_signed_in?
       = link_to edit_user_registration_path,
                 class: 'text-dark text-decoration-none me-4' do
-        small.text-white = current_user.email
+        small = current_user.email
       = link_to t('posts.title'),
                 new_post_path,
                 class: 'text-primary text-decoration-none me-3'
