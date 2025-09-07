@@ -2,7 +2,7 @@
   .card-header
     span.me-2
       = link_to '#', "#comment_#{post_comment.id}"
-    - author_email = post_comment.creator&.email.presence || post_comment.user&.email.presence || t('comments.unknown_author', default: 'unknown')
+    - author_email = post_comment.user&.email.presence || t('comments.unknown_author', default: 'unknown')
     span.me-3.text-muted = author_email
     span.me-3.text-muted = l(post_comment.created_at, format: :comment_short)
 

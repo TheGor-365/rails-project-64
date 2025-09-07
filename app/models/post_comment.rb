@@ -7,21 +7,13 @@ class PostComment < ApplicationRecord
 
   belongs_to :user
   belongs_to :post
-  belongs_to :creator, class_name: 'User', optional: true
 
   validates :content, presence: true, length: { minimum: 3 }
-
-  before_validation :ensure_creator
 
   after_create_commit :broadcast_create
   after_destroy_commit :broadcast_destroy
 
   private
-
-  def ensure_creator
-    self.creator ||= user
-    self.user    ||= creator
-  end
 
   def broadcast_create
     if parent.present?

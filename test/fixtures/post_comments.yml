@@ -1,11 +1,9 @@
 one:
-  content: MyText
-  user: one
+  content: "First comment"
   post: one
-  creator: one
+  user: one
 
 two:
-  content: MyText
-  user: two
+  content: "Second comment"
   post: two
-  creator: two
+  user: two
