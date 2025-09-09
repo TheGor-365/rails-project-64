@@ -14,13 +14,9 @@ class PostsController < ApplicationController
     @post = Post.new(post_params.merge(creator: current_user))
 
     if @post.save
-      respond_to do |f|
-        f.html { redirect_to(post_url(@post), notice: t('.success')) }
-      end
+      redirect_to(post_url(@post), notice: t('.success'))
     else
-      respond_to do |f|
-        f.html { render(:new, status: :unprocessable_entity) }
-      end
+      render(:new, status: :unprocessable_entity)
     end
   end
 
