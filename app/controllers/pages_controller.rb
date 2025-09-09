@@ -2,6 +2,6 @@
 
 class PagesController < ApplicationController
   def index
-    @posts = Post.includes(:category).order(id: :desc)
+    @posts = Post.order(created_at: :desc)
   end
 end
