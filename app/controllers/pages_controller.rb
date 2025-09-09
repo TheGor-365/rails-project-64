@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class PagesController < ApplicationController
-  def posts
+  def index
     @posts = Post.includes(:category).order(id: :desc)
   end
 end
