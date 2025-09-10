@@ -2,9 +2,10 @@
 
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: %i[new create]
-  before_action :set_post, only: %i[show]
 
-  def show; end
+  def show
+    @post = set_post
+  end
 
   def new
     @post = Post.new
@@ -23,7 +24,7 @@ class PostsController < ApplicationController
   private
 
   def set_post
-    @post = Post.find(params[:id])
+    Post.find(params[:id])
   end
 
   def post_params

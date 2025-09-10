@@ -4,9 +4,9 @@ class CommentsController < ApplicationController
   include ActionView::RecordIdentifier
 
   before_action :authenticate_user!
-  before_action :set_post
 
   def create
+    @post = set_post
     @comment = @post.comments.build(comment_params)
     @comment.user = current_user
 
@@ -26,7 +26,7 @@ class CommentsController < ApplicationController
   private
 
   def set_post
-    @post = Post.find(params[:post_id])
+    Post.find(params[:post_id])
   end
 
   def comment_params
