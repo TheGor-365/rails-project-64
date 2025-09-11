@@ -31,7 +31,7 @@ class LikesController < ApplicationController
   private
 
   def fetch_post_id!
-    params.dig(:like, :post_id) || params[:post_id] || raise(ActiveRecord::RecordNotFound)
+    params[:post_id] || raise(ActiveRecord::RecordNotFound)
   end
 
   def not_found_like
