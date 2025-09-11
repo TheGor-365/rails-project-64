@@ -30,8 +30,12 @@ class LikesController < ApplicationController
 
   private
 
+  # Единый источник: тело запроса /likes с ключом like[post_id]
   def fetch_post_id!
-    params[:post_id] || raise(ActiveRecord::RecordNotFound)
+    params.require(:like).require(:post_id)
+  rescue ActionController::ParameterMissing
+    # Приводим к RecordNotFound, чтобы сработал общий обработчик
+    raise ActiveRecord::RecordNotFound
   end
 
   def not_found_like
