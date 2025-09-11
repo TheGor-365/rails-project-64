@@ -10,7 +10,7 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'POST /posts/:id/comments creates root comment' do
-    attrs = { comment: { content: Faker::Lorem.sentence(word_count: 10) } }
+    attrs = { post_comment: { content: Faker::Lorem.sentence(word_count: 10) } }
     assert_difference('PostComment.count', +1) do
       post post_comments_url(@post), params: attrs
     end

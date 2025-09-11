@@ -30,8 +30,7 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    key = params[:post_comment].present? ? :post_comment : :comment
-    params.require(key).permit(:content, :parent_id)
+    params.require(:post_comment).permit(:content, :parent_id)
   end
 
   # Показываем ошибки только в той форме, из которой была отправка.
