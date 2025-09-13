@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
 
     if @comment.save
       respond_to do |f|
-        f.turbo_stream
+        f.turbo_stream { render 'post_comments/create' }
         f.html { redirect_to(post_path(@post, locale: I18n.locale)) }
       end
     else
