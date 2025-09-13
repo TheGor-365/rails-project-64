@@ -1,13 +1,11 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
-  title: Title_one
-  body: Body_one
+  title: "Первый пост"
+  body:  "Это валидный текст тела поста длиной больше двадцати символов."
   category: one
   creator: one
 
 two:
-  title: Title_two
-  body: Body_two
-  category: two
+  title: "Второй пост"
+  body:  "Ещё один пример содержимого, явно длиннее двадцати символов."
+  category: one
   creator: two
