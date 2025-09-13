@@ -9,5 +9,7 @@ h3.h5.text-uppercase.mt-4.mb-2 = t('comments.label')
 = turbo_stream_from [@post, :comments]
 
 div id=dom_id(@post, :comments)
-  - @post.comments.order(id: :desc).each do |comment|
-    = render(comment) if comment.root?
+  - tree = @post.comments.arrange
+  - tree.keys.sort_by(&:id).reverse.each do |root|
+    = render partial: 'post_comments/post_comment',
+             locals: { post: @post, post_comment: root, children: tree[root] }

@@ -9,9 +9,12 @@
   .card-body
     = post_comment.content
     .m-3
+      - children_hash = local_assigns[:children] || {}
       div id=dom_id(post_comment, :children)
-        - if post_comment.children.any?
-          = render post_comment.children.order(id: :asc)
+        - if children_hash.any?
+          - children_hash.keys.sort_by(&:id).each do |child|
+            = render partial: 'post_comments/post_comment',
+                     locals: { post: post, post_comment: child, children: children_hash[child] }
 
   .card-footer
     - reply_collapse_id = dom_id(post_comment, :reply_collapse)
@@ -23,4 +26,4 @@
       aria-controls=reply_collapse_id
     ) = t('comments.reply')
 
-    = render partial: 'post_comments/reply_collapse', locals: { post: post_comment.post, parent: post_comment }
+    = render partial: 'post_comments/reply_collapse', locals: { post: post, parent: post_comment }

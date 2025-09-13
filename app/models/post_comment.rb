@@ -21,14 +21,14 @@ class PostComment < ApplicationRecord
         [post, :comments],
         target: dom_id(parent, :children),
         partial: 'post_comments/post_comment',
-        locals: { post_comment: self }
+        locals: { post: post, post_comment: self }
       )
     else
       broadcast_prepend_to(
         [post, :comments],
         target: dom_id(post, :comments),
         partial: 'post_comments/post_comment',
-        locals: { post_comment: self }
+        locals: { post: post, post_comment: self }
       )
     end
   end
