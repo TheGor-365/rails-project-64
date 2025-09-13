@@ -1,19 +1,19 @@
 # frozen_string_literal: true
 
 require 'application_system_test_case'
+require 'warden/test/helpers'
 
 class PostsTest < ApplicationSystemTestCase
+  include Warden::Test::Helpers
+
+  def teardown
+    Warden.test_reset!
+    super
+  end
+
   test 'visiting the home' do
-    email = Faker::Internet.email
-    password = Faker::Internet.password(min_length: 10, max_length: 30)
-    User.create!(email:, password:)
-
-    visit new_user_session_url
-
-    fill_in 'Email', with: email
-    fill_in 'Password', with: password
-
-    click_on 'Log in'
+    user = users(:one)
+    login_as user, scope: :user
 
     visit root_url
     assert_selector 'h1', text: 'Collective Blog'
