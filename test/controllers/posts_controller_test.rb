@@ -20,7 +20,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test 'POST /posts creates post' do
+  test 'POST /posts creates post with correct attributes' do
     attrs = {
       post: {
         title: Faker::Lorem.sentence(word_count: 3),
@@ -28,9 +28,19 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
         category_id: @category.id
       }
     }
+
     assert_difference('Post.count', +1) do
       post posts_url, params: attrs
     end
+
+    created = Post.find_by(
+      title: attrs[:post][:title],
+      body: attrs[:post][:body],
+      category_id: @category.id,
+      creator_id: users(:one).id
+    )
+    assert { created }
+
     follow_redirect!
     assert_response :success
   end
