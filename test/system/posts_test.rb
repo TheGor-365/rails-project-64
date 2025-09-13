@@ -3,12 +3,6 @@
 require 'application_system_test_case'
 
 class PostsTest < ApplicationSystemTestCase
-  setup do
-    @post = posts(:one)
-    @user = users(:one)
-    @post.category = categories(:one)
-  end
-
   test 'visiting the home' do
     email = Faker::Internet.email
     password = Faker::Internet.password(min_length: 10, max_length: 30)
