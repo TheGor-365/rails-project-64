@@ -7,6 +7,8 @@ require 'minitest'
 require 'minitest/autorun'
 require 'minitest/power_assert'
 
+Rails.application.routes.default_url_options[:locale] = I18n.default_locale
+
 class ActiveSupport::TestCase
   parallelize(workers: :number_of_processors)
   fixtures :all

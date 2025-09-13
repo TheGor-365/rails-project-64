@@ -5,7 +5,6 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   setup do
     sign_in users(:one)
     @category = categories(:one)
-    self.default_url_options = { locale: I18n.default_locale }
   end
 
   test 'GET /posts/new' do

@@ -6,7 +6,6 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
   setup do
     sign_in users(:one)
     @post = posts(:one)
-    self.default_url_options = { locale: I18n.default_locale }
   end
 
   test 'POST /posts/:id/comments creates root comment' do
