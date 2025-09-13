@@ -11,18 +11,18 @@ class LikesControllerTest < ActionDispatch::IntegrationTest
     PostLike.where(user: users(:one), post: @post).delete_all
   end
 
-  test 'POST /likes likes a post' do
+  test 'POST /posts/:post_id/likes likes a post' do
     assert_difference('PostLike.count', +1) do
-      post likes_url, params: { like: { post_id: @post.id } }
+      post post_likes_url(@post)
     end
     follow_redirect!
     assert_response :success
   end
 
-  test 'DELETE /likes/:id unlikes a post' do
+  test 'DELETE /posts/:post_id/likes/:id unlikes a post' do
     like = PostLike.create!(user: users(:one), post: @post)
     assert_difference('PostLike.count', -1) do
-      delete like_url(like)
+      delete post_like_url(@post, like)
     end
     follow_redirect!
     assert_response :success

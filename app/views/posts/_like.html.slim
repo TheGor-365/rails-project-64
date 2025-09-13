@@ -3,13 +3,12 @@
 
 - if current_user
   - if current_like
-    = form_with url: like_path(current_like, locale: I18n.locale), method: :delete, class: 'd-inline', local: true do
+    = form_with url: post_like_path(post, current_like, locale: I18n.locale), method: :delete, class: 'd-inline', local: true do
       button.btn.btn-link.p-0.text-decoration-none type="submit" title=t('actions.unlike', default: 'Unlike')
         i.bi.bi-heart-fill
     span.ms-1.align-middle = likes_count
   - else
-    = form_with url: likes_path(locale: I18n.locale), method: :post, class: 'd-inline', local: true do
-      = hidden_field_tag 'like[post_id]', post.id
+    = form_with url: post_likes_path(post, locale: I18n.locale), method: :post, class: 'd-inline', local: true do
       button.btn.btn-link.p-0.text-decoration-none type="submit" title=t('actions.like', default: 'Like')
         i.bi.bi-heart
     span.ms-1.align-middle = likes_count

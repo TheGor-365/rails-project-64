@@ -4,20 +4,23 @@ class LikesController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    post = Post.find(fetch_post_id!)
-    current_user.likes.create_or_find_by!(post: post)
+    post = Post.find(params[:post_id])
+    current_user.likes.create!(post: post)
 
     respond_to do |f|
       f.turbo_stream { redirect_to(post_path(post, locale: I18n.locale)) }
       f.html         { redirect_to(post_path(post, locale: I18n.locale)) }
     end
+  rescue ActiveRecord::RecordInvalid, ActiveRecord::RecordNotUnique
+    # если вдруг повторный лайк — просто ведём на пост (счётчик не изменится)
+    redirect_to post_path(post, locale: I18n.locale)
   rescue ActiveRecord::RecordNotFound
     not_found_like
   end
 
   def destroy
+    post = Post.find(params[:post_id])
     like = current_user.likes.find(params[:id])
-    post = like.post
     like.destroy!
 
     respond_to do |f|
@@ -29,14 +32,6 @@ class LikesController < ApplicationController
   end
 
   private
-
-  # Единый источник: тело запроса /likes с ключом like[post_id]
-  def fetch_post_id!
-    params.require(:like).require(:post_id)
-  rescue ActionController::ParameterMissing
-    # Приводим к RecordNotFound, чтобы сработал общий обработчик
-    raise ActiveRecord::RecordNotFound
-  end
 
   def not_found_like
     respond_to do |f|
