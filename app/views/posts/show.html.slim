@@ -10,6 +10,6 @@ h3.h5.text-uppercase.mt-4.mb-2 = t('comments.label')
 
 div id=dom_id(@post, :comments)
   - tree = @post.comments.arrange
-  - tree.keys.sort_by(&:id).reverse.each do |root|
+  - tree.keys.sort_by(&:id).reverse_each do |root|
     = render partial: 'post_comments/post_comment',
              locals: { post: @post, post_comment: root, children: tree[root] }
